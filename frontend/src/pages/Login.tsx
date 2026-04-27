@@ -75,31 +75,48 @@ export default function Login() {
     }
   }
 
+  const AEGIDE_LOGO = "https://www.aegide-international.com/wp-content/uploads/2023/02/Aegide-Dolfines-light.png";
+  const AEGIDE_LOGO_WHITE = "https://www.aegide-international.com/wp-content/uploads/2023/02/Aegide-Dolfines-White-light.png";
+  const BG_IMAGE = "https://www.aegide-international.com/wp-content/uploads/2023/02/photo-egalite-hf-sur-chantier-scaled-1-1.jpeg";
+
   return (
     <div className="flex min-h-screen flex-col">
       <div className="flex flex-1">
-        {/* Left panel */}
+        {/* Left panel — background image + blue overlay */}
         <div
-          className="hidden md:flex flex-col items-center justify-center w-1/2 p-12"
-          style={{ backgroundColor: loginBranding.primaryColor }}
+          className="hidden md:flex flex-col items-end justify-end w-1/2 relative overflow-hidden"
+          style={{
+            backgroundImage: `url(${BG_IMAGE})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className="text-center text-white">
-            <div
-              className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center text-3xl font-bold overflow-hidden"
-              style={{ backgroundColor: loginBranding.accentColor, color: loginBranding.primaryColor }}
-            >
-              {loginBranding.logoUrl ? (
-                <img src={loginBranding.logoUrl} alt="Logo" className="w-full h-full object-contain" />
-              ) : "S"}
+          {/* Blue overlay */}
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: loginBranding.primaryColor, opacity: 0.72 }}
+          />
+          {/* Content */}
+          <div className="relative z-10 p-12 w-full flex flex-col justify-between h-full">
+            <img src={AEGIDE_LOGO_WHITE} alt="Aegide" className="w-40 object-contain" />
+            <div>
+              <h1 className="text-4xl font-bold text-white leading-tight mb-3">
+                Safety Skill Track
+              </h1>
+              <p className="text-white/80 text-lg italic">
+                « Construisez votre culture sécurité »
+              </p>
             </div>
-            <h1 className="text-4xl font-bold mb-2">Safety Skill Track</h1>
-            <p className="text-lg italic text-white/80">« Construisez votre culture sécurité »</p>
           </div>
         </div>
 
         {/* Right panel */}
         <div className="flex flex-col items-center justify-center w-full md:w-1/2 bg-white p-8">
           <div className="w-full max-w-sm">
+            {/* Logo */}
+            <div className="flex justify-center mb-8">
+              <img src={AEGIDE_LOGO} alt="Aegide" className="h-12 object-contain" />
+            </div>
 
             {!showForgot ? (
               <>
