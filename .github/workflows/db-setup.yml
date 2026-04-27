@@ -1,0 +1,42 @@
+name: Database Setup (run once on first deploy)
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_seed:
+        description: 'Skip seed (if data already exists)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+
+jobs:
+  db-setup:
+    name: Push schema & seed
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Push Prisma schema to Supabase
+        run: npx prisma db push
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Seed initial data
+        if: ${{ inputs.skip_seed == 'false' }}
+        run: npm run seed
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
