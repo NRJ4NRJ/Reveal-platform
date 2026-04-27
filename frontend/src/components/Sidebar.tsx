@@ -14,6 +14,7 @@ interface NavItem { to: string; icon: React.ReactNode; label: string; }
 
 const SA_PRIMARY = "#27295A";
 const SA_ACCENT  = "#FCC00E";
+const AEGIDE_LOGO_WHITE = "https://www.aegide-international.com/wp-content/uploads/2023/02/Aegide-Dolfines-White-light.png";
 
 function NavTooltip({ label, children }: { label: string; children: React.ReactNode }) {
   const [visible, setVisible] = useState(false);
@@ -119,6 +120,8 @@ export default function Sidebar() {
       <div className="flex items-center gap-3 px-4 py-5 border-b border-white/10">
         {logoUrl ? (
           <img src={logoUrl} alt="Logo" className="w-8 h-8 object-contain shrink-0 rounded" />
+        ) : isSuperAdmin ? (
+          <img src={AEGIDE_LOGO_WHITE} alt="Aegide" className={collapsed ? "h-6 object-contain shrink-0" : "h-7 object-contain shrink-0"} />
         ) : (
           <div
             className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
