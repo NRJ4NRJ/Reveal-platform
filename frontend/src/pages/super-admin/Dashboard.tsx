@@ -63,7 +63,21 @@ export default function SuperAdminDashboard() {
   return (
     <div className="flex h-screen overflow-hidden bg-gray-50">
       <Sidebar />
-      <main className="flex-1 overflow-y-auto p-8">
+      <main className="flex-1 overflow-y-auto p-8 relative">
+
+        {/* Decorative SVG background */}
+        <div className="absolute bottom-0 right-0 w-3/4 h-3/4 pointer-events-none overflow-hidden">
+          <svg viewBox="0 0 700 550" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path d="M700 550 Q500 380 300 480 Q100 580 150 320 Q200 60 500 120" stroke="#27295A" strokeWidth="1.5" opacity="0.055"/>
+            <path d="M700 450 Q520 300 340 400 Q160 500 190 260 Q220 20 540 80" stroke="#27295A" strokeWidth="1" opacity="0.04"/>
+            <path d="M700 380 Q560 240 380 340 Q200 440 240 200 Q280 0 580 40" stroke="#FCC00E" strokeWidth="2" opacity="0.13"/>
+            <path d="M700 480 Q540 320 360 420 Q180 520 210 280 Q240 40 560 90" stroke="#FCC00E" strokeWidth="1" opacity="0.07"/>
+            <circle cx="580" cy="430" r="160" stroke="#FCC00E" strokeWidth="1.5" opacity="0.07"/>
+            <circle cx="480" cy="120" r="110" stroke="#27295A" strokeWidth="1" opacity="0.05"/>
+            <circle cx="640" cy="260" r="70" stroke="#FCC00E" strokeWidth="1" opacity="0.09"/>
+          </svg>
+        </div>
+
         <h1 className="text-2xl font-bold mb-4" style={{ color: branding.primaryColor }}>
           {t("dashboard")}
         </h1>
@@ -87,7 +101,7 @@ export default function SuperAdminDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {/* Card 1 — Entreprises clientes */}
-          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
+          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
             <div className="w-14 h-14 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: `${branding.primaryColor}15` }}>
               <Building2 size={28} style={{ color: branding.primaryColor }} />
@@ -99,7 +113,7 @@ export default function SuperAdminDashboard() {
           </div>
 
           {/* Card 2 — Salariés inscrits */}
-          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
+          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
             <div className="w-14 h-14 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: `${branding.accentColor}30` }}>
               <Users size={28} style={{ color: branding.accentColor }} />
@@ -111,7 +125,7 @@ export default function SuperAdminDashboard() {
           </div>
 
           {/* ITER9: Card 3 — Tests assignés */}
-          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
+          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
             <div className="w-14 h-14 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: `${branding.primaryColor}15` }}>
               <ClipboardList size={28} style={{ color: branding.primaryColor }} />
@@ -123,7 +137,7 @@ export default function SuperAdminDashboard() {
           </div>
 
           {/* ITER9: Card 4 — Tests en cours */}
-          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
+          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
             <div className="w-14 h-14 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: `${branding.accentColor}35` }}>
               <Clock size={28} style={{ color: branding.accentColor }} />
@@ -135,7 +149,7 @@ export default function SuperAdminDashboard() {
           </div>
 
           {/* ITER9: Card 5 — Tests terminés */}
-          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
+          <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
             <div className="w-14 h-14 rounded-xl flex items-center justify-center"
               style={{ backgroundColor: `${branding.primaryColor}15` }}>
               <CheckCircle size={28} style={{ color: branding.primaryColor }} />
@@ -148,7 +162,7 @@ export default function SuperAdminDashboard() {
 
           {/* ITER9: Card 6 — Réponses à analyser (clickable) */}
           <div
-            className="bg-white rounded-xl shadow-sm p-6 flex flex-col gap-3 cursor-pointer hover:shadow-md transition-shadow border-2 border-transparent"
+            className="bg-white rounded-xl shadow-sm p-6 flex flex-col gap-3 cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1 border-2 border-transparent"
             style={{ ["--tw-border-opacity" as any]: 1 }}
             onMouseEnter={e => (e.currentTarget.style.borderColor = `${branding.accentColor}80`)}
             onMouseLeave={e => (e.currentTarget.style.borderColor = "transparent")}
