@@ -103,9 +103,7 @@ export default function Login() {
               <h1 className="text-4xl font-bold text-white leading-tight mb-3">
                 Safety Skill Track
               </h1>
-              <p className="text-white/80 text-lg italic">
-                « Construisez votre culture sécurité »
-              </p>
+              <p className="text-white/80 text-lg italic">{t("loginTagline")}</p>
             </div>
           </div>
         </div>

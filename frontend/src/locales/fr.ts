@@ -18,6 +18,7 @@ const fr = {
   backToLogin: "Retour à la connexion",
   // ITER7: Login page strings
   accessYourSpace: "Accédez à votre espace",
+  loginTagline: "« Construisez votre culture sécurité »",
   yourUsername: "Votre identifiant",
   connectionError: "Erreur de connexion",
   sendError: "Erreur lors de l'envoi",
