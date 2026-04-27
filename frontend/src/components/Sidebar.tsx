@@ -221,7 +221,11 @@ export default function Sidebar() {
           {collapsed ? <ChevronRight size={20} /> : <><span className="text-xs text-white/60 mr-1">{t("collapse")}</span><ChevronLeft size={20} /></>}
         </button>
         {/* ITER7: sélecteur de langue en bas de sidebar */}
-        {!collapsed && (
+        {collapsed ? (
+          <div className="flex justify-center pt-1">
+            <LanguageSwitcher dark compact />
+          </div>
+        ) : (
           <div className="flex justify-end pt-1 px-1">
             <LanguageSwitcher dark />
           </div>

@@ -1,8 +1,21 @@
 import React from "react";
 import { useI18n } from "../contexts/I18nContext";
 
-export default function LanguageSwitcher({ className = "", dark = false }: { className?: string; dark?: boolean }) {
+export default function LanguageSwitcher({ className = "", dark = false, compact = false }: { className?: string; dark?: boolean; compact?: boolean }) {
   const { lang, setLanguage } = useI18n();
+
+  if (compact) {
+    const next = lang === "fr" ? "en" : "fr";
+    return (
+      <button
+        onClick={() => setLanguage(next)}
+        title={next === "en" ? "Switch to English" : "Passer en français"}
+        className={`w-9 h-9 rounded-lg text-xs font-bold transition-all flex items-center justify-center ${dark ? "bg-white/15 text-white hover:bg-white/25" : "bg-gray-100 text-gray-700 hover:bg-gray-200"} ${className}`}
+      >
+        {lang.toUpperCase()}
+      </button>
+    );
+  }
 
   return (
     <div className={`flex items-center p-0.5 rounded-lg ${dark ? "bg-white/10" : "bg-gray-100"} ${className}`}>
