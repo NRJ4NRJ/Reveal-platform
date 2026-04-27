@@ -265,7 +265,7 @@ export default function SuperAdminQuestions() {
   const [showImportModal, setShowImportModal] = useState(false);
   const [importRows, setImportRows]           = useState<ParsedQuestion[]>([]);
   const [importSaving, setImportSaving]       = useState(false);
-  const [importFormat, setImportFormat]       = useState<"A" | "B" | null>(null); // ITER13
+  const [importFormat, setImportFormat]       = useState<ImportFormat | null>(null); // ITER13
   const [importParseError, setImportParseError] = useState<string | null>(null); // ITER13
   const importFileRef = useRef<HTMLInputElement>(null);
 
@@ -456,19 +456,29 @@ export default function SuperAdminQuestions() {
         if (raw.length < 2) { setImportParseError("Fichier vide ou sans données."); return; }
         const headers = (raw[0] as any[]).map(String);
         const rows = raw.slice(1);
-        const fmt = detectImportFormat(headers);
-        if (fmt === "UNKNOWN") {
-          setImportFormat(null);
-          setImportParseError('Format non reconnu. Utilisez le format du template (colonnes Option A / A_Correct). Téléchargez le template pour voir les exemples.');
+        // Try V3 first (primary format), then A, then B
+        let fmt = detectImportFormat(headers);
+        let parsed: ParsedQuestion[] = [];
+        if (fmt === "V3" || fmt === "UNKNOWN") {
+          parsed = parseFormatV3(rows, headers);
+          if (parsed.length > 0) { fmt = "V3"; }
+        }
+        if (parsed.length === 0) {
+          const fmtA = parseFormatA(rows, headers);
+          if (fmtA.length > 0) { parsed = fmtA; fmt = "A"; }
+        }
+        if (parsed.length === 0) {
+          const fmtB = parseFormatB(rows, headers);
+          if (fmtB.length > 0) { parsed = fmtB; fmt = "B"; }
+        }
+        if (parsed.length === 0) {
+          setImportParseError("Aucune question trouvée dans le fichier. Vérifiez que les colonnes correspondent au template (Option A / A_Correct).");
           setImportRows([]);
           return;
         }
         setImportParseError(null);
-        setImportFormat(fmt);
-        const parsed = (fmt === "V3" ? parseFormatV3(rows, headers)
-                      : fmt === "A"  ? parseFormatA(rows, headers)
-                      : parseFormatB(rows, headers))
-          .map(q => ({ ...q, _alert: computeAlert(q) }));
+        setImportFormat(fmt as ImportFormat);
+        parsed = parsed.map(q => ({ ...q, _alert: computeAlert(q) }));
         setImportRows(parsed);
       } catch (err: any) {
         setImportParseError(err.message || "Erreur lors de la lecture du fichier.");
