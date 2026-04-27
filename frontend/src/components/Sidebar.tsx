@@ -15,6 +15,7 @@ interface NavItem { to: string; icon: React.ReactNode; label: string; }
 const SA_PRIMARY = "#27295A";
 const SA_ACCENT  = "#FCC00E";
 const AEGIDE_LOGO_WHITE = "https://www.aegide-international.com/wp-content/uploads/2023/02/Aegide-Dolfines-White-light.png";
+const SIDEBAR_BG_IMAGE = "https://www.aegide-international.com/wp-content/uploads/2023/02/photo-egalite-hf-sur-chantier-scaled-1-1.jpeg";
 
 function NavTooltip({ label, children }: { label: string; children: React.ReactNode }) {
   const [visible, setVisible] = useState(false);
@@ -114,7 +115,13 @@ export default function Sidebar() {
   return (
     <aside
       className="flex flex-col h-screen transition-all duration-300 shrink-0"
-      style={{ width: collapsed ? 64 : 240, backgroundColor: primaryColor }}
+      style={{
+        width: collapsed ? 64 : 240,
+        backgroundImage: `linear-gradient(rgba(39,41,90,0.90), rgba(39,41,90,0.90)), url(${SIDEBAR_BG_IMAGE})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundColor: primaryColor,
+      }}
     >
       {/* Logo / Titre */}
       <div className="flex items-center gap-3 px-4 py-5 border-b border-white/10">
@@ -210,13 +217,13 @@ export default function Sidebar() {
           </button>
         )}
         <button onClick={() => setCollapsed(!collapsed)} aria-label={collapsed ? "Étendre" : t("collapse")}
-          className="flex items-center justify-center w-full py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-          {collapsed ? <ChevronRight size={20} /> : <><ChevronLeft size={20} /><span className="ml-2 text-xs text-white/60">{t("collapse")}</span></>}
+          className="flex items-center justify-end w-full px-3 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+          {collapsed ? <ChevronRight size={20} /> : <><span className="text-xs text-white/60 mr-1">{t("collapse")}</span><ChevronLeft size={20} /></>}
         </button>
         {/* ITER7: sélecteur de langue en bas de sidebar */}
         {!collapsed && (
-          <div className="flex justify-center pt-1">
-            <LanguageSwitcher className="text-white/70" />
+          <div className="flex justify-end pt-1 px-1">
+            <LanguageSwitcher dark />
           </div>
         )}
       </div>
