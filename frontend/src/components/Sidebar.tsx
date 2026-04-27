@@ -119,7 +119,7 @@ export default function Sidebar() {
         width: collapsed ? 64 : 240,
         backgroundImage: `linear-gradient(rgba(39,41,90,0.90), rgba(39,41,90,0.90)), url(${SIDEBAR_BG_IMAGE})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "20% center",
         backgroundColor: primaryColor,
       }}
     >

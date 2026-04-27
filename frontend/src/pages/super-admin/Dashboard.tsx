@@ -112,62 +112,71 @@ export default function SuperAdminDashboard() {
 
           {/* ITER9: Card 3 — Tests assignés */}
           <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-indigo-50">
-              <ClipboardList size={28} className="text-indigo-600" />
+            <div className="w-14 h-14 rounded-xl flex items-center justify-center"
+              style={{ backgroundColor: `${branding.primaryColor}15` }}>
+              <ClipboardList size={28} style={{ color: branding.primaryColor }} />
             </div>
             <div>
               <p className="text-sm text-gray-500">{t("assignedTests")}</p>
-              <p className="text-3xl font-bold text-indigo-700">{stats.assignedCount}</p>
+              <p className="text-3xl font-bold" style={{ color: branding.primaryColor }}>{stats.assignedCount}</p>
             </div>
           </div>
 
           {/* ITER9: Card 4 — Tests en cours */}
           <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-amber-50">
-              <Clock size={28} className="text-amber-500" />
+            <div className="w-14 h-14 rounded-xl flex items-center justify-center"
+              style={{ backgroundColor: `${branding.accentColor}35` }}>
+              <Clock size={28} style={{ color: branding.accentColor }} />
             </div>
             <div>
               <p className="text-sm text-gray-500">{t("testsInProgress")}</p>
-              <p className="text-3xl font-bold text-amber-600">{stats.inProgressCount}</p>
+              <p className="text-3xl font-bold" style={{ color: branding.primaryColor }}>{stats.inProgressCount}</p>
             </div>
           </div>
 
           {/* ITER9: Card 5 — Tests terminés */}
           <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-green-50">
-              <CheckCircle size={28} className="text-green-600" />
+            <div className="w-14 h-14 rounded-xl flex items-center justify-center"
+              style={{ backgroundColor: `${branding.primaryColor}15` }}>
+              <CheckCircle size={28} style={{ color: branding.primaryColor }} />
             </div>
             <div>
               <p className="text-sm text-gray-500">{t("testsCompleted")}</p>
-              <p className="text-3xl font-bold text-green-700">{stats.completedCount}</p>
+              <p className="text-3xl font-bold" style={{ color: branding.primaryColor }}>{stats.completedCount}</p>
             </div>
           </div>
 
           {/* ITER9: Card 6 — Réponses à analyser (clickable) */}
           <div
-            className="bg-white rounded-xl shadow-sm p-6 flex flex-col gap-3 cursor-pointer hover:shadow-md transition-shadow border-2 border-transparent hover:border-orange-200"
-            onClick={() => navigate("/super-admin/responses")} // ITER9: navigate on click
+            className="bg-white rounded-xl shadow-sm p-6 flex flex-col gap-3 cursor-pointer hover:shadow-md transition-shadow border-2 border-transparent"
+            style={{ ["--tw-border-opacity" as any]: 1 }}
+            onMouseEnter={e => (e.currentTarget.style.borderColor = `${branding.accentColor}80`)}
+            onMouseLeave={e => (e.currentTarget.style.borderColor = "transparent")}
+            onClick={() => navigate("/super-admin/responses")}
           >
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-orange-50">
-                <AlertCircle size={28} className="text-orange-500" />
+              <div className="w-14 h-14 rounded-xl flex items-center justify-center"
+                style={{ backgroundColor: `${branding.accentColor}35` }}>
+                <AlertCircle size={28} style={{ color: branding.accentColor }} />
               </div>
               <div>
                 <p className="text-sm text-gray-500">{t("openResponsesToReview")}</p>
-                <p className="text-3xl font-bold text-orange-600">{totalResponses}</p>
+                <p className="text-3xl font-bold" style={{ color: branding.primaryColor }}>{totalResponses}</p>
               </div>
             </div>
             {/* ITER9: Sub-cards breakdown */}
             <div className="flex gap-2 pt-1 border-t border-gray-100">
               <button
-                className="flex-1 text-xs text-center py-1.5 px-2 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 transition-colors"
-                onClick={e => { e.stopPropagation(); navigate("/super-admin/responses", { state: { tab: "OPEN" } }); }} // ITER9
+                className="flex-1 text-xs text-center py-1.5 px-2 rounded-lg transition-colors"
+                style={{ backgroundColor: `${branding.primaryColor}12`, color: branding.primaryColor }}
+                onClick={e => { e.stopPropagation(); navigate("/super-admin/responses", { state: { tab: "OPEN" } }); }}
               >
                 {t("openQuestionsCount")}: {stats.openResponsesCount}
               </button>
               <button
-                className="flex-1 text-xs text-center py-1.5 px-2 bg-purple-50 text-purple-700 rounded-lg hover:bg-purple-100 transition-colors"
-                onClick={e => { e.stopPropagation(); navigate("/super-admin/responses", { state: { tab: "SCENARIO" } }); }} // ITER9
+                className="flex-1 text-xs text-center py-1.5 px-2 rounded-lg transition-colors"
+                style={{ backgroundColor: `${branding.accentColor}25`, color: branding.primaryColor }}
+                onClick={e => { e.stopPropagation(); navigate("/super-admin/responses", { state: { tab: "SCENARIO" } }); }}
               >
                 {t("scenariosToReview")}: {stats.scenarioResponsesCount}
               </button>
