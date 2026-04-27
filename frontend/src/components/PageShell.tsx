@@ -1,6 +1,8 @@
 import React from "react";
+import { useI18n } from "../contexts/I18nContext";
 
 export default function PageShell({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  const { t } = useI18n();
   return (
     <main className={`flex-1 overflow-y-auto relative flex flex-col ${className}`}>
 
@@ -24,7 +26,7 @@ export default function PageShell({ children, className = "" }: { children: Reac
 
       {/* Footer */}
       <footer className="relative z-10 shrink-0 border-t border-gray-200 py-2.5 px-8 text-center text-xs text-gray-400">
-        © Aegide International 2026 - Tous droits réservés &nbsp;////&nbsp; Filiale du Groupe Dolfines
+        {t("footerText")}
       </footer>
     </main>
   );

@@ -404,5 +404,6 @@ const fr = {
   confirmNewPassword: "Confirmer le nouveau mot de passe",
   changingPwd: "Modification...",
   uploadError: "Erreur lors de l'upload",
+  footerText: "© Aegide International 2026 - Tous droits réservés  ////  Filiale du Groupe Dolfines",
 };
 export default fr;

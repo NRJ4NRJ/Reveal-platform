@@ -404,5 +404,6 @@ const en = {
   confirmNewPassword: "Confirm new password",
   changingPwd: "Changing...",
   uploadError: "Upload error",
+  footerText: "© Aegide International 2026 - All rights reserved  ////  A Dolfines Group Company",
 };
 export default en;
