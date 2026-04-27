@@ -66,24 +66,27 @@ export default function SuperAdminDashboard() {
       <main className="flex-1 overflow-y-auto p-8 relative">
 
         {/* Decorative SVG background */}
-        <div className="absolute bottom-0 right-0 w-3/4 h-3/4 pointer-events-none overflow-hidden">
-          <svg viewBox="0 0 700 550" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path d="M700 550 Q500 380 300 480 Q100 580 150 320 Q200 60 500 120" stroke="#27295A" strokeWidth="1.5" opacity="0.055"/>
-            <path d="M700 450 Q520 300 340 400 Q160 500 190 260 Q220 20 540 80" stroke="#27295A" strokeWidth="1" opacity="0.04"/>
-            <path d="M700 380 Q560 240 380 340 Q200 440 240 200 Q280 0 580 40" stroke="#FCC00E" strokeWidth="2" opacity="0.13"/>
-            <path d="M700 480 Q540 320 360 420 Q180 520 210 280 Q240 40 560 90" stroke="#FCC00E" strokeWidth="1" opacity="0.07"/>
-            <circle cx="580" cy="430" r="160" stroke="#FCC00E" strokeWidth="1.5" opacity="0.07"/>
-            <circle cx="480" cy="120" r="110" stroke="#27295A" strokeWidth="1" opacity="0.05"/>
-            <circle cx="640" cy="260" r="70" stroke="#FCC00E" strokeWidth="1" opacity="0.09"/>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+          <svg viewBox="0 0 900 600" className="w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none">
+            {/* Bold yellow swirls — centred */}
+            <path d="M900 600 Q650 420 400 520 Q150 620 200 360 Q250 100 580 180" stroke="#FCC00E" strokeWidth="3" opacity="0.18"/>
+            <path d="M900 480 Q680 320 450 420 Q220 520 260 280 Q300 40 620 120" stroke="#FCC00E" strokeWidth="2" opacity="0.12"/>
+            {/* Bold blue swirls — centred */}
+            <path d="M900 540 Q670 370 430 470 Q190 570 230 320 Q270 70 600 150" stroke="#27295A" strokeWidth="3" opacity="0.10"/>
+            <path d="M900 420 Q700 280 480 370 Q260 460 290 230 Q320 0 640 80" stroke="#27295A" strokeWidth="1.5" opacity="0.07"/>
+            {/* Circles — centred on viewport */}
+            <circle cx="450" cy="340" r="220" stroke="#FCC00E" strokeWidth="2.5" opacity="0.10"/>
+            <circle cx="520" cy="200" r="140" stroke="#27295A" strokeWidth="2" opacity="0.07"/>
+            <circle cx="350" cy="460" r="100" stroke="#FCC00E" strokeWidth="2" opacity="0.12"/>
           </svg>
         </div>
 
-        <h1 className="text-2xl font-bold mb-4" style={{ color: branding.primaryColor }}>
+        <h1 className="relative z-10 text-2xl font-bold mb-4" style={{ color: branding.primaryColor }}>
           {t("dashboard")}
         </h1>
 
         {/* ITER9: Client filter dropdown */}
-        <div className="mb-6">
+        <div className="relative z-10 mb-6">
           <select
             value={selectedClientId}
             onChange={e => setSelectedClientId(e.target.value)}
@@ -98,7 +101,7 @@ export default function SuperAdminDashboard() {
         </div>
 
         {/* ITER9: 6-card grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {/* Card 1 — Entreprises clientes */}
           <div className="bg-white rounded-xl shadow-sm p-6 flex items-center gap-4 transition-all duration-200 hover:shadow-lg hover:-translate-y-1">
