@@ -9,9 +9,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const AEGIDE_LOGO = "https://www.aegide-international.com/wp-content/uploads/2023/02/Aegide-Dolfines-light.png";
 const AEGIDE_LOGO_WHITE = "https://www.aegide-international.com/wp-content/uploads/2023/02/Aegide-Dolfines-White-light.png";
-// YouTube video ID for QHSE background (test) — swap for a direct .mp4 URL when available
-const BG_VIDEO_ID = "lfoTLeFooR4";
-const BG_IMAGE = "https://www.aegide-international.com/wp-content/uploads/2023/02/photo-egalite-hf-sur-chantier-scaled-1-1.jpeg";
+const BG_IMAGE = "https://www.aegide-international.com/wp-content/uploads/2023/09/Drill-Pipe-Derrick-Workers-11-copie.jpg";
 
 export default function Login() {
   const { login } = useAuth();

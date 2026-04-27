@@ -223,6 +223,7 @@ const levelColors: Record<string, string> = {
   COMPLET: "bg-red-100 text-red-700",
 };
 const SA_PRIMARY = "#27295A";
+const SA_ACCENT  = "#FCC00E";
 
 function Modal({ title, onClose, children, wide }: { title: string; onClose: () => void; children: React.ReactNode; wide?: boolean }) {
   return (
@@ -545,15 +546,18 @@ export default function SuperAdminQuestions() {
                 {t("addGrandTheme")}
               </button>
               <button onClick={() => setShowSubThemeModal(true)}
-                className="px-3 py-2 text-xs rounded-lg bg-indigo-100 text-indigo-700 hover:bg-indigo-200">
+                className="px-3 py-2 text-xs rounded-lg"
+                style={{ backgroundColor: "#e8e9f3", color: SA_PRIMARY }}>
                 {t("addSubTheme1")}
               </button>
               <button onClick={() => setShowSubSubThemeModal(true)}
-                className="px-3 py-2 text-xs rounded-lg bg-purple-100 text-purple-700 hover:bg-purple-200">
+                className="px-3 py-2 text-xs rounded-lg"
+                style={{ backgroundColor: "#f0f1f8", color: SA_PRIMARY }}>
                 {t("addSubTheme2")}
               </button>
               <button onClick={() => openCreateQuestion()}
-                className="flex items-center gap-1 px-3 py-2 text-xs rounded-lg bg-green-100 text-green-700 hover:bg-green-200">
+                className="flex items-center gap-1 px-3 py-2 text-xs rounded-lg font-semibold"
+                style={{ backgroundColor: SA_ACCENT, color: SA_PRIMARY }}>
                 <Plus size={12} /> {t("question")}
               </button>
               <button onClick={downloadTemplate}
@@ -561,7 +565,8 @@ export default function SuperAdminQuestions() {
                 <Download size={12} /> {t("downloadTemplate")}
               </button>
               <button onClick={() => { setImportRows([]); setShowImportModal(true); setTimeout(() => importFileRef.current?.click(), 100); }}
-                className="flex items-center gap-1 px-3 py-2 text-xs rounded-lg bg-amber-100 text-amber-700 hover:bg-amber-200">
+                className="flex items-center gap-1 px-3 py-2 text-xs rounded-lg"
+                style={{ backgroundColor: "#fef3c7", color: "#78580a" }}>
                 <Upload size={12} /> {t("import")}
               </button>
             </div>
