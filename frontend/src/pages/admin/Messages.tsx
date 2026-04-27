@@ -107,7 +107,7 @@ export default function AdminMessages() {
   return (
     <div className="flex h-screen bg-gray-50">
       <Sidebar />
-      <main className="flex-1 overflow-auto">
+      <PageShell>
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
             <div>

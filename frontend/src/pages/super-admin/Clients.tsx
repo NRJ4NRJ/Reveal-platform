@@ -469,7 +469,7 @@ export default function SuperAdminClients() {
   return (
     <div className="flex h-screen bg-gray-50">
       <Sidebar />
-      <main className="flex-1 overflow-auto">
+      <PageShell>
         <div className="p-8">
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-2xl font-bold text-gray-900">{t("companies")}</h1>

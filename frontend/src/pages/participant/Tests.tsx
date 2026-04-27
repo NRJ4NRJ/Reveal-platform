@@ -768,7 +768,7 @@ export default function ParticipantTests() {
           logoUrl={logoUrl}
           companyName={companyName}
         />
-        <main className="flex-1 overflow-y-auto p-8 max-w-2xl mx-auto">
+        <PageShell>
           <div className="mb-6">
             <button
               onClick={() => setActiveTest(null)}

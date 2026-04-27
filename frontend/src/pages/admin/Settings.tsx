@@ -146,7 +146,7 @@ export default function AdminSettings() {
     return (
       <div className="flex h-screen overflow-hidden bg-gray-50">
         <Sidebar />
-        <main className="flex-1 flex items-center justify-center">
+        <PageShell>
           <div className="text-gray-400">{t("loading")}</div>
         </PageShell>
       </div>
