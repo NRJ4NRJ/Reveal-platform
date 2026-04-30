@@ -126,6 +126,7 @@ export default function SuperAdminTests() {
         fetch("/api/super-admin/themes", { headers: authHeaders }),
         fetch("/api/super-admin/clients", { headers: authHeaders }),
       ]);
+      if (!testsRes.ok || !themesRes.ok || !clientsRes.ok) throw new Error("API error");
       setTests(await testsRes.json());
       setThemes(await themesRes.json());
       setClients(await clientsRes.json());

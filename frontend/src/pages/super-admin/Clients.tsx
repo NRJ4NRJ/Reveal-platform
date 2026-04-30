@@ -195,6 +195,7 @@ export default function SuperAdminClients() {
     if (!accessToken) return;
     try {
       const res = await fetch("/api/super-admin/clients", { headers: authHeaders });
+      if (!res.ok) throw new Error("API error");
       setClients(await res.json());
     } catch { toast.error(t("loadingError")); }
     finally { setLoading(false); }

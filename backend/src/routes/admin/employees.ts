@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { PrismaClient, Role } from "@prisma/client";
+import { Role } from "@prisma/client";
+import prisma from "../../lib/prisma";
 import { authenticate, requireRole } from "../../middleware/auth";
 import bcrypt from "bcryptjs";
 import { sendCredentials } from "../../services/email";
