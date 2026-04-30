@@ -14,12 +14,15 @@ async function main() {
     });
   }
 
+  // Remove accounts that should no longer exist as super admins
+  await prisma.user.deleteMany({
+    where: { email: { in: ["nicolas.lecoeur@8p2.fr", "richard.musi@8p2.fr"] } }
+  });
+
   const SUPER_ADMIN_PASSWORD = "Dolfines2026.";
   const superAdmins = [
-    { email: "admin@trainingsaas.com",                username: "superadmin"    },
-    { email: "nicolas.lecoeur@8p2.fr",               username: "nicolas.lecoeur" },
-    { email: "richard.musi@8p2.fr",                  username: "richard.musi"    },
-    { email: "ines.dechaut@aegide-international.com", username: "ines.dechaut"   },
+    { email: "admin@trainingsaas.com",                username: "superadmin"  },
+    { email: "ines.dechaut@aegide-international.com", username: "ines.dechaut" },
   ];
   const hashed = await bcrypt.hash(SUPER_ADMIN_PASSWORD, 12);
   for (const admin of superAdmins) {
