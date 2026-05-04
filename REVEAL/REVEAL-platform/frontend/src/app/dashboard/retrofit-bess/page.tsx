@@ -395,6 +395,7 @@ function RetrofitBessContent() {
     if (loading || result || error) return;
     setAutoLoadedDefaultCase(true);
     void runRetrofit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     autoLoadedDefaultCase,
     autoPickedMfr,
@@ -470,7 +471,7 @@ function RetrofitBessContent() {
             First-pass screening for storage retrofit cases. Select a BESS product from the
             equipment database — or let REVEAL auto-recommend the best fit — then run the
             analysis using negative-price energy from the Performance workflow or entered manually.
-            REVEAL assumes a one-directional retrofit BESS that stores curtailed on-site energy and re-injects it at the site's saved tariff.
+            REVEAL assumes a one-directional retrofit BESS that stores curtailed on-site energy and re-injects it at the site&apos;s saved tariff.
           </p>
         </section>
 
@@ -577,7 +578,7 @@ function RetrofitBessContent() {
                 {selectedSite?.tariff_eur_mwh != null ? `${selectedSite.tariff_eur_mwh.toLocaleString()} EUR/MWh` : "Not set"}
               </p>
               <p className="mt-1 text-xs text-slate-400">
-                Retrofit BESS revenue is based on the site's saved tariff, assuming the battery only stores curtailed on-site generation and cannot charge from the grid.
+                Retrofit BESS revenue is based on the site&apos;s saved tariff, assuming the battery only stores curtailed on-site generation and cannot charge from the grid.
               </p>
             </div>
 

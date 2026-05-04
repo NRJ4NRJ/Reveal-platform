@@ -1387,7 +1387,7 @@ function GenerateReportPageContent({ params }: { params: { siteId: string } }) {
     } catch (error) {
       setAnalysisError(error instanceof Error ? error.message : "REVEAL could not analyse the uploaded dataset.");
     }
-  }, [site, filesReadyForReview, isRunningAnalysis, params.siteId, columnMappings, files, runAnalysis, previewSignature, assumptionsConfirmed, siteConfigOverrides]);
+  }, [site, filesReadyForReview, isRunningAnalysis, params.siteId, columnMappings, files, runAnalysis, previewSignature, assumptionsConfirmed, siteConfigOverrides, lang]);
 
   const onDrop = useCallback(
     (accepted: File[]) => {
@@ -1402,6 +1402,7 @@ function GenerateReportPageContent({ params }: { params: { siteId: string } }) {
         return nextFiles;
       });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [site]
   );
 

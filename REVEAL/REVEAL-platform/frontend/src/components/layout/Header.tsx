@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useEffect, useState } from "react";
+import { startTransition, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { LanguageToggle } from "./LanguageToggle";
@@ -30,19 +30,23 @@ export function Header() {
     }
   };
 
-  const navLinks = session
-    ? [
-        { href: "/dashboard", label: t("nav.dashboard") },
-        { href: "/dashboard/charting", label: t("nav.charting") },
-        { href: "/dashboard/performance", label: t("nav.reporting") },
-        { href: "/dashboard/long-term-modelling", label: t("nav.longTerm") },
-        { href: "/dashboard/financials", label: t("nav.financials") },
-        { href: "/dashboard/price-forecast", label: t("nav.priceForecast") },
-        { href: "/dashboard/retrofit-bess", label: t("nav.retrofitBess") },
-        { href: "/dashboard/knowledge-base", label: t("nav.knowledgeBase") },
-        { href: "/dashboard/contact", label: t("nav.contact") },
-      ]
-    : [];
+  const navLinks = useMemo(
+    () =>
+      session
+        ? [
+            { href: "/dashboard", label: t("nav.dashboard") },
+            { href: "/dashboard/charting", label: t("nav.charting") },
+            { href: "/dashboard/performance", label: t("nav.reporting") },
+            { href: "/dashboard/long-term-modelling", label: t("nav.longTerm") },
+            { href: "/dashboard/financials", label: t("nav.financials") },
+            { href: "/dashboard/price-forecast", label: t("nav.priceForecast") },
+            { href: "/dashboard/retrofit-bess", label: t("nav.retrofitBess") },
+            { href: "/dashboard/knowledge-base", label: t("nav.knowledgeBase") },
+            { href: "/dashboard/contact", label: t("nav.contact") },
+          ]
+        : [],
+    [session, t]
+  );
 
   useEffect(() => {
     if (!session) return;

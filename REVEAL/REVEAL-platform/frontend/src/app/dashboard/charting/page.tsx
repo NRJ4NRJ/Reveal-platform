@@ -717,14 +717,14 @@ export default function ChartingPage() {
   const needsWorksheetSelection = worksheetOptions.length > 1;
   const canOpenChartBuilder = Boolean(detection && (!needsWorksheetSelection || worksheetSelectionConfirmed));
   const activeStep = !detection ? 1 : !canOpenChartBuilder ? 2 : 3;
-  const availableColumns = detection?.columns ?? [];
+  const availableColumns = useMemo(() => detection?.columns ?? [], [detection?.columns]);
   const selectedSiteFromList = useMemo(() => sites.find((site) => site.id === selectedSiteId), [selectedSiteId, sites]);
   const { site: selectedSiteDetails, isLoading: selectedSiteIsLoading } = useSite(selectedSiteId);
   const selectedSite = selectedSiteDetails ?? selectedSiteFromList;
   const selectedSiteTimezone = selectedSite?.site_timezone || undefined;
   const selectedSiteHasBess = Boolean(selectedSite?.has_bess);
   const selectedSiteHasGps = Boolean(selectedSite && Number.isFinite(selectedSite.lat) && Number.isFinite(selectedSite.lon));
-  const detectedPowerColumns = detection?.mapping?.power ?? [];
+  const detectedPowerColumns = useMemo(() => detection?.mapping?.power ?? [], [detection?.mapping?.power]);
   const candidatePowerColumns = detectedPowerColumns.length > 0 ? detectedPowerColumns : availableColumns;
   const siteCapacities = useMemo(
     () =>

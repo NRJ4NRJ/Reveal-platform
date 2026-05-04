@@ -37,18 +37,17 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   function t(key: string): string {
     const keys = key.split(".");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let val: any = translations[lang];
+    let val: unknown = translations[lang];
     for (const k of keys) {
-      val = val?.[k];
+      if (typeof val !== "object" || val === null) { val = undefined; break; }
+      val = (val as Record<string, unknown>)[k];
       if (val === undefined) break;
     }
     if (typeof val === "string") return val;
-    // Fallback to English
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let fallback: any = translations["en"];
+    let fallback: unknown = translations["en"];
     for (const k of keys) {
-      fallback = fallback?.[k];
+      if (typeof fallback !== "object" || fallback === null) { fallback = undefined; break; }
+      fallback = (fallback as Record<string, unknown>)[k];
     }
     return typeof fallback === "string" ? fallback : key;
   }
