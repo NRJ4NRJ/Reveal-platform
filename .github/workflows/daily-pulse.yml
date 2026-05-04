@@ -1,0 +1,61 @@
+name: Daily Pulse
+
+on:
+  schedule:
+    - cron: "10 7 * * *"
+    - cron: "10 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  send-daily-pulse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Gate run to 09:10 Europe/Paris
+        id: paris_time_gate
+        run: |
+          python - <<'PY'
+          import os
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          event_name = os.environ["GITHUB_EVENT_NAME"]
+          now = datetime.now(ZoneInfo("Europe/Paris"))
+          should_run = event_name == "workflow_dispatch" or (now.hour == 9 and now.minute == 10)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              fh.write(f"should_run={'true' if should_run else 'false'}\n")
+              fh.write(f"paris_time={now.isoformat()}\n")
+              fh.write(f"event_name={event_name}\n")
+          PY
+
+      - name: Show schedule gate result
+        run: echo "event=${{ steps.paris_time_gate.outputs.event_name }} ; Paris time is ${{ steps.paris_time_gate.outputs.paris_time }} ; should_run=${{ steps.paris_time_gate.outputs.should_run }}"
+
+      - name: Install dependencies
+        if: steps.paris_time_gate.outputs.should_run == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Send Daily Pulse
+        if: steps.paris_time_gate.outputs.should_run == 'true'
+        env:
+          DAILY_PULSE_SENDER_EMAIL: ${{ secrets.DAILY_PULSE_SENDER_EMAIL }}
+          DAILY_PULSE_SENDER_PASS: ${{ secrets.DAILY_PULSE_SENDER_PASS }}
+          DAILY_PULSE_SMTP_SERVER: ${{ secrets.DAILY_PULSE_SMTP_SERVER }}
+          DAILY_PULSE_SMTP_PORT: ${{ secrets.DAILY_PULSE_SMTP_PORT }}
+          DAILY_PULSE_RECIPIENT: ${{ secrets.DAILY_PULSE_RECIPIENT }}
+          DAILY_PULSE_CC_EMAILS: ${{ secrets.DAILY_PULSE_CC_EMAILS }}
+        run: python "Daily Pulse/daily_pulse.py"

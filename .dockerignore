@@ -1,0 +1,11 @@
+.git
+.gitignore
+**/__pycache__
+**/.pytest_cache
+**/.mypy_cache
+**/.venv
+**/node_modules
+**/*.pyc
+**/*.pyo
+**/*.pyd
+SCADA Analysis/_report_test_output

@@ -1,0 +1,675 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Brand tokens (unchanged across themes) ───────────────────── */
+:root {
+  --color-orange: #F39200;
+  --color-orange-accent: #F07820;
+  --color-success: #70AD47;
+  --color-warning: #C98A00;
+  --color-danger: #C62828;
+}
+
+/* ─── Dark theme (default) ─────────────────────────────────────── */
+:root,
+html[data-theme="dark"] {
+  --bg-page: #001a2a;
+  --bg-panel: rgba(3, 16, 26, 0.84);
+  --bg-panel-2: rgba(3, 16, 26, 0.82);
+  --bg-panel-3: rgba(3, 16, 26, 0.78);
+  --bg-row: rgba(255, 255, 255, 0.05);
+  --bg-row-hover: rgba(255, 255, 255, 0.07);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-faint: rgba(255, 255, 255, 0.10);
+  --border-weak: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --header-bg: #0B2A3D;
+  --header-border: #003366;
+  --nav-text: rgba(203, 213, 225, 1);
+  --nav-text-active: #ffffff;
+  --text-body: #e2e8f0;
+  --chart-tooltip-bg: rgba(3, 16, 26, 0.95);
+  --chart-tooltip-border: rgba(255, 255, 255, 0.12);
+  --chart-tooltip-text: #f8fafc;
+  --chart-tooltip-muted: #cbd5e1;
+  --chart-axis-grid: rgba(148, 163, 184, 0.12);
+  --chart-axis-line: rgba(255, 255, 255, 0.16);
+  --chart-axis-text: #cbd5e1;
+  --chart-axis-text-strong: #ffffff;
+  --chart-legend-text: #e2e8f0;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.72);
+  --scrollbar-track: rgba(255, 255, 255, 0.08);
+  --scrollbar-border: rgba(11, 42, 61, 0.92);
+}
+
+/* ─── Light theme ──────────────────────────────────────────────── */
+html[data-theme="light"] {
+  --bg-page: #f1f5f9;
+  --bg-panel: rgba(255, 255, 255, 0.97);
+  --bg-panel-2: rgba(255, 255, 255, 0.95);
+  --bg-panel-3: rgba(255, 255, 255, 0.92);
+  --bg-row: rgba(0, 0, 0, 0.028);
+  --bg-row-hover: rgba(0, 0, 0, 0.048);
+  --border-subtle: rgba(0, 0, 0, 0.10);
+  --border-faint: rgba(0, 0, 0, 0.08);
+  --border-weak: rgba(0, 0, 0, 0.06);
+  --border-strong: rgba(0, 0, 0, 0.13);
+  --header-bg: #ffffff;
+  --header-border: #cbd5e1;
+  --nav-text: rgba(30, 41, 59, 0.85);
+  --nav-text-active: #0B2A3D;
+  --text-body: #1e3a4d;
+  --chart-tooltip-bg: rgba(255, 255, 255, 0.98);
+  --chart-tooltip-border: rgba(148, 163, 184, 0.26);
+  --chart-tooltip-text: #0b2a3d;
+  --chart-tooltip-muted: #42556a;
+  --chart-axis-grid: rgba(100, 116, 139, 0.18);
+  --chart-axis-line: rgba(51, 65, 85, 0.62);
+  --chart-axis-text: #475569;
+  --chart-axis-text-strong: #334155;
+  --chart-legend-text: #334155;
+  --scrollbar-thumb: rgba(100, 116, 139, 0.45);
+  --scrollbar-track: rgba(0, 0, 0, 0.06);
+  --scrollbar-border: rgba(241, 245, 249, 0.92);
+}
+
+/* ─── Base styles ───────────────────────────────────────────────── */
+body {
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-dolfines), "Open Sans", Aptos, Calibri, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.font-dolfines {
+  font-family: var(--font-dolfines), "Open Sans", Aptos, Calibri, sans-serif;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-border);
+}
+::-webkit-scrollbar-thumb:hover { filter: brightness(1.15); }
+
+/* ─── Logo theme switching ──────────────────────────────────────── */
+.logo-dark-only  { display: block; }
+.logo-light-only { display: none; }
+html[data-theme="light"] .logo-dark-only  { display: none; }
+html[data-theme="light"] .logo-light-only { display: block; }
+
+/* REVEAL brand text next to logo */
+.brand-text { color: #ffffff; }
+html[data-theme="light"] .brand-text { color: #0b2a3d; }
+
+/* ─── Semantic utility classes ─────────────────────────────────── */
+@layer utilities {
+  .bg-panel          { background-color: var(--bg-panel); }
+  .bg-panel-2        { background-color: var(--bg-panel-2); }
+  .bg-panel-3        { background-color: var(--bg-panel-3); }
+  .bg-row            { background-color: var(--bg-row); }
+  .bg-header         { background-color: var(--header-bg); }
+  .border-subtle     { border-color: var(--border-subtle); }
+  .border-faint      { border-color: var(--border-faint); }
+  .border-weak       { border-color: var(--border-weak); }
+  .border-strong     { border-color: var(--border-strong); }
+  .border-header     { border-color: var(--header-border); }
+  .text-nav          { color: var(--nav-text); }
+  .text-nav-active   { color: var(--nav-text-active); }
+  .hover\:bg-row-hover:hover { background-color: var(--bg-row-hover); }
+}
+
+/* ─── Light-mode: header text + shadow ─────────────────────────── */
+html[data-theme="light"] .bg-header .text-white {
+  color: #0b2a3d;
+}
+html[data-theme="light"] .bg-header [class*="text-slate-4"],
+html[data-theme="light"] .bg-header .text-slate-400 {
+  color: rgba(30, 41, 59, 0.75);
+}
+html[data-theme="light"] header {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.09), 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-nav-link {
+  position: relative;
+  pointer-events: auto;
+}
+
+.header-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  right: 0.4rem;
+  bottom: -0.55rem;
+  height: 3px;
+  border-radius: 999px;
+  background: transparent;
+  transition: background-color 0.18s ease, opacity 0.18s ease;
+  opacity: 0;
+}
+
+.header-nav-link:hover::after,
+.header-nav-link-active::after {
+  opacity: 1;
+}
+
+html[data-theme="light"] .header-nav-link::after {
+  background: rgba(240, 120, 32, 0.32);
+}
+
+html[data-theme="light"] .header-nav-link-active::after,
+html[data-theme="light"] .header-nav-link:hover::after {
+  background: linear-gradient(90deg, #f07820, #f39200);
+}
+
+html[data-theme="dark"] .header-nav-link::after {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+html[data-theme="dark"] .header-nav-link-active::after,
+html[data-theme="dark"] .header-nav-link:hover::after {
+  background: rgba(243, 146, 0, 0.85);
+}
+
+/* ─── Light-mode: auto-adapt panel text ────────────────────────── */
+html[data-theme="light"] .bg-panel,
+html[data-theme="light"] .bg-panel-2,
+html[data-theme="light"] .bg-panel-3,
+html[data-theme="light"] .bg-row {
+  color: #0b2a3d;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Inside panels in light mode, override common dark-mode text classes */
+html[data-theme="light"] .bg-panel .text-white,
+html[data-theme="light"] .bg-panel-2 .text-white,
+html[data-theme="light"] .bg-panel-3 .text-white,
+html[data-theme="light"] .bg-row .text-white {
+  color: #0b2a3d;
+}
+
+html[data-theme="light"] .workflow-panel-active {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.93));
+  border-color: rgba(148, 163, 184, 0.24);
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08), 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+/* Keep white text on colored backgrounds (badges, buttons, status chips) */
+html[data-theme="light"] .bg-panel [class*="bg-orange"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-sky"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-emerald"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-amber"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-red"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-violet"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-green"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-slate-7"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-danger"] .text-white,
+html[data-theme="light"] .bg-panel [class*="bg-success"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-orange"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-emerald"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-amber"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-red"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-violet"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-sky"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-slate-7"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="bg-danger"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-orange"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-emerald"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-amber"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-red"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-violet"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-sky"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-slate-7"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="bg-danger"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-orange"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-sky"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-emerald"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-amber"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-red"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-violet"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-green"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-slate-7"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-danger"] .text-white,
+html[data-theme="light"] .bg-row [class*="bg-success"] .text-white {
+  color: #ffffff;
+}
+
+/* Elements that carry their own colored bg AND text-white (e.g. primary buttons) */
+html[data-theme="light"] .bg-panel .text-white[class*="bg-"],
+html[data-theme="light"] .bg-panel .text-white[class*="!bg-"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="bg-"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="!bg-"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="bg-"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="!bg-"],
+html[data-theme="light"] .bg-row .text-white[class*="bg-"],
+html[data-theme="light"] .bg-row .text-white[class*="!bg-"] {
+  color: #ffffff;
+}
+
+/* Slate text variants inside panels: lighten for light mode */
+html[data-theme="light"] .bg-panel [class*="text-slate-2"],
+html[data-theme="light"] .bg-panel [class*="text-slate-3"],
+html[data-theme="light"] .bg-panel-2 [class*="text-slate-2"],
+html[data-theme="light"] .bg-panel-2 [class*="text-slate-3"],
+html[data-theme="light"] .bg-row [class*="text-slate-2"],
+html[data-theme="light"] .bg-row [class*="text-slate-3"] {
+  color: rgba(51, 65, 85, 0.88);
+}
+
+html[data-theme="light"] .bg-panel .text-slate-400,
+html[data-theme="light"] .bg-panel-2 .text-slate-400,
+html[data-theme="light"] .bg-panel [class*="text-white\/"],
+html[data-theme="light"] .bg-panel-2 [class*="text-white\/"],
+html[data-theme="light"] .bg-row .text-slate-400,
+html[data-theme="light"] .bg-row [class*="text-white\/"] {
+  color: rgba(71, 85, 105, 0.9);
+}
+
+html[data-theme="light"] .site-config-toggle {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: rgba(148, 163, 184, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+html[data-theme="light"] .site-config-toggle .site-config-toggle-button {
+  text-shadow: none;
+}
+
+html[data-theme="light"] .site-config-toggle .site-config-toggle-button-active {
+  background: linear-gradient(135deg, #ee8b2f, #f5a14d);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(240, 138, 44, 0.22);
+}
+
+html[data-theme="light"] .segmented-control {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: rgba(148, 163, 184, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+html[data-theme="light"] .segmented-control-button {
+  color: #42556a;
+  text-shadow: none;
+}
+
+html[data-theme="light"] .segmented-control-button:hover {
+  color: #ee8b2f;
+}
+
+html[data-theme="light"] .segmented-control-button-active {
+  background: linear-gradient(135deg, #ee8b2f, #f5a14d);
+  border-color: rgba(238, 139, 47, 0.35);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(240, 138, 44, 0.22);
+}
+
+/* ─── Hero image overlays ──────────────────────────────────────── */
+/* Decorative only — never block pointer events on content beneath */
+.hero-overlay {
+  pointer-events: none;
+}
+
+/* Light-mode: swap the dark navy gradient for a soft light-slate wash */
+html[data-theme="light"] .hero-overlay {
+  background-image: linear-gradient(
+    100deg,
+    rgba(248, 250, 252, 0.62),
+    rgba(241, 245, 249, 0.48),
+    rgba(241, 245, 249, 0.30)
+  );
+}
+/* Live-values sidebar: focused chip uses a class (not bg-*) so the
+   "keep text-white on colored bg" exception in globals doesn't fire.
+   In light mode the panel's own .bg-panel .text-white override then
+   correctly turns the text dark. */
+.lv-focused-chip { background: rgba(56, 189, 248, 0.12); }
+
+/* Dashboard page: 20% lighter than standard hero-overlay */
+html[data-theme="light"] .dashboard-overlay {
+  background-image: linear-gradient(
+    100deg,
+    rgba(248, 250, 252, 0.50),
+    rgba(241, 245, 249, 0.38),
+    rgba(241, 245, 249, 0.24)
+  );
+}
+
+/* Text that sits directly on the hero (outside any panel) goes dark + bold + shadow */
+html[data-theme="light"] .hero-content .text-white {
+  color: #0b2a3d;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 2px 10px rgba(255, 255, 255, 0.80);
+}
+html[data-theme="light"] .hero-content [class*="text-white\/"] {
+  color: rgba(15, 23, 42, 0.80);
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.90);
+}
+html[data-theme="light"] .hero-content [class*="text-slate-2"],
+html[data-theme="light"] .hero-content [class*="text-slate-3"] {
+  color: rgba(30, 41, 59, 0.90);
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.90);
+}
+
+/* ─── Workflow animation ────────────────────────────────────────── */
+@keyframes workflow-flicker {
+  0%, 100% {
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 0 18px rgba(255,255,255,0.12), 0 0 34px rgba(255,255,255,0.16);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.18), 0 0 30px rgba(255,255,255,0.2), 0 0 58px rgba(255,255,255,0.28);
+  }
+}
+
+.workflow-step-glow {
+  animation: workflow-flicker 1.8s ease-in-out infinite;
+}
+
+/* ─── Light-mode: -100 tint text variants inside panels ─────────── */
+/* Step labels, path labels, badge text (text-sky-100, text-emerald-100, etc.)
+   are designed for dark mode. In light mode, redirect them to a legible dark tone. */
+html[data-theme="light"] .bg-panel [class*="text-sky-1"],
+html[data-theme="light"] .bg-panel [class*="text-emerald-1"],
+html[data-theme="light"] .bg-panel [class*="text-amber-1"],
+html[data-theme="light"] .bg-panel [class*="text-teal-1"],
+html[data-theme="light"] .bg-panel [class*="text-rose-1"],
+html[data-theme="light"] .bg-panel [class*="text-cyan-1"],
+html[data-theme="light"] .bg-panel [class*="text-violet-1"],
+html[data-theme="light"] .bg-panel [class*="text-orange-1"],
+html[data-theme="light"] .bg-panel [class*="text-slate-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-sky-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-emerald-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-amber-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-teal-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-rose-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-cyan-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-violet-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-orange-1"],
+html[data-theme="light"] .bg-panel-2 [class*="text-slate-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-sky-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-emerald-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-amber-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-teal-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-rose-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-cyan-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-violet-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-orange-1"],
+html[data-theme="light"] .bg-panel-3 [class*="text-slate-1"],
+html[data-theme="light"] .bg-row [class*="text-sky-1"],
+html[data-theme="light"] .bg-row [class*="text-emerald-1"],
+html[data-theme="light"] .bg-row [class*="text-amber-1"],
+html[data-theme="light"] .bg-row [class*="text-teal-1"],
+html[data-theme="light"] .bg-row [class*="text-rose-1"],
+html[data-theme="light"] .bg-row [class*="text-cyan-1"],
+html[data-theme="light"] .bg-row [class*="text-violet-1"],
+html[data-theme="light"] .bg-row [class*="text-orange-1"],
+html[data-theme="light"] .bg-row [class*="text-slate-1"] {
+  color: rgba(30, 58, 77, 0.80);
+}
+
+/* ─── Light-mode: low-opacity tinted cards → dark text-white ──────
+   Overrides the broad "keep white" exceptions above for semi-transparent
+   /8–/15 tinted cards where the background is too pale for white text. */
+html[data-theme="light"] .bg-panel [class*="/8"] .text-white,
+html[data-theme="light"] .bg-panel [class*="/10"] .text-white,
+html[data-theme="light"] .bg-panel [class*="/12"] .text-white,
+html[data-theme="light"] .bg-panel [class*="/15"] .text-white,
+html[data-theme="light"] .bg-panel [class*="/18"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="/8"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="/10"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="/12"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="/15"] .text-white,
+html[data-theme="light"] .bg-panel-2 [class*="/18"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="/8"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="/10"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="/12"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="/15"] .text-white,
+html[data-theme="light"] .bg-panel-3 [class*="/18"] .text-white,
+html[data-theme="light"] .bg-row [class*="/8"] .text-white,
+html[data-theme="light"] .bg-row [class*="/10"] .text-white,
+html[data-theme="light"] .bg-row [class*="/12"] .text-white,
+html[data-theme="light"] .bg-row [class*="/15"] .text-white,
+html[data-theme="light"] .bg-row [class*="/18"] .text-white,
+html[data-theme="light"] .bg-panel .text-white[class*="/8"],
+html[data-theme="light"] .bg-panel .text-white[class*="/10"],
+html[data-theme="light"] .bg-panel .text-white[class*="/12"],
+html[data-theme="light"] .bg-panel .text-white[class*="/15"],
+html[data-theme="light"] .bg-panel .text-white[class*="/18"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="/8"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="/10"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="/12"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="/15"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="/18"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="/8"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="/10"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="/12"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="/15"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="/18"],
+html[data-theme="light"] .bg-row .text-white[class*="/8"],
+html[data-theme="light"] .bg-row .text-white[class*="/10"],
+html[data-theme="light"] .bg-row .text-white[class*="/12"],
+html[data-theme="light"] .bg-row .text-white[class*="/15"],
+html[data-theme="light"] .bg-row .text-white[class*="/18"] {
+  color: #0b2a3d;
+}
+
+/* ─── Panel text: cancel hero-content glow so dark text stays clean ─
+   hero-content .text-white (line ~197) comes AFTER bg-panel .text-white
+   in the file, so same-specificity cascade would re-apply the white
+   text-shadow to panel text — this block, placed last, wins it back. */
+html[data-theme="light"] .bg-panel .text-white,
+html[data-theme="light"] .bg-panel-2 .text-white,
+html[data-theme="light"] .bg-panel-3 .text-white,
+html[data-theme="light"] .bg-row .text-white {
+  color: #0b2a3d;
+  text-shadow: none;
+}
+html[data-theme="light"] .bg-panel .text-white[class*="bg-"],
+html[data-theme="light"] .bg-panel .text-white[class*="!bg-"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="bg-"],
+html[data-theme="light"] .bg-panel-2 .text-white[class*="!bg-"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="bg-"],
+html[data-theme="light"] .bg-panel-3 .text-white[class*="!bg-"],
+html[data-theme="light"] .bg-row .text-white[class*="bg-"],
+html[data-theme="light"] .bg-row .text-white[class*="!bg-"],
+html[data-theme="light"] .site-config-toggle .site-config-toggle-button-active,
+html[data-theme="light"] .segmented-control .segmented-control-button-active {
+  color: #ffffff;
+  text-shadow: none;
+}
+html[data-theme="light"] .workflow-panel-active .text-white,
+html[data-theme="light"] .workflow-panel-active [class*="text-white\/"],
+html[data-theme="light"] .workflow-panel-active [class*="text-slate-2"],
+html[data-theme="light"] .workflow-panel-active [class*="text-slate-3"] {
+  color: #0b2a3d;
+  text-shadow: none;
+}
+
+.power-channel-chip {
+  border-color: var(--border-subtle);
+  background: #ffffff;
+  color: var(--nav-text-active);
+}
+
+.power-channel-chip:hover {
+  border-color: rgba(240, 120, 32, 0.35);
+  background: rgba(240, 120, 32, 0.04);
+}
+
+.power-channel-chip-selected {
+  border-color: #f39200;
+  background: linear-gradient(135deg, #f07820, #f39200);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(240, 120, 32, 0.22);
+}
+
+html[data-theme="light"] .bg-panel .power-channel-chip-selected,
+html[data-theme="light"] .bg-panel-2 .power-channel-chip-selected,
+html[data-theme="light"] .bg-panel-3 .power-channel-chip-selected,
+html[data-theme="light"] .bg-row .power-channel-chip-selected {
+  background: linear-gradient(135deg, #f07820, #f39200);
+  color: #ffffff;
+}
+html[data-theme="light"] .bg-panel [class*="text-slate-2"],
+html[data-theme="light"] .bg-panel [class*="text-slate-3"],
+html[data-theme="light"] .bg-panel-2 [class*="text-slate-2"],
+html[data-theme="light"] .bg-panel-2 [class*="text-slate-3"],
+html[data-theme="light"] .bg-row [class*="text-slate-2"],
+html[data-theme="light"] .bg-row [class*="text-slate-3"] {
+  color: rgba(51, 65, 85, 0.88);
+  text-shadow: none;
+}
+
+/* ─── Shared progress bars ───────────────────────────────────────── */
+.progress-label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.progress-title {
+  color: #ffffff;
+}
+
+.progress-copy {
+  color: rgba(226, 232, 240, 0.84);
+}
+
+.progress-pill {
+  border: 1px solid var(--border-faint);
+  background: var(--bg-row);
+  color: #f8fafc;
+}
+
+.progress-track {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, rgba(243, 146, 0, 0.96), rgba(245, 161, 77, 0.96));
+}
+
+html[data-theme="light"] .progress-label {
+  color: rgba(187, 98, 17, 0.92);
+}
+
+html[data-theme="light"] .progress-title {
+  color: #0b2a3d;
+}
+
+html[data-theme="light"] .progress-copy {
+  color: rgba(71, 85, 105, 0.92);
+}
+
+html[data-theme="light"] .progress-pill {
+  border-color: rgba(238, 139, 47, 0.22);
+  background: linear-gradient(135deg, rgba(243, 146, 0, 0.10), rgba(245, 161, 77, 0.16));
+  color: #ee8b2f;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+html[data-theme="light"] .progress-track {
+  background: rgba(238, 139, 47, 0.14);
+}
+
+html[data-theme="light"] .calendar-surface {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(148, 163, 184, 0.24);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.12), 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="light"] .calendar-label {
+  color: rgba(71, 85, 105, 0.92);
+}
+
+html[data-theme="light"] .calendar-nav {
+  color: #0b2a3d;
+  background: rgba(15, 23, 42, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+html[data-theme="light"] .calendar-nav:hover {
+  border-color: rgba(238, 139, 47, 0.3);
+  background: rgba(243, 146, 0, 0.08);
+  color: #ee8b2f;
+}
+
+html[data-theme="light"] .calendar-day-outside {
+  color: rgba(148, 163, 184, 0.95);
+}
+
+html[data-theme="light"] .calendar-day-current {
+  color: #334155;
+  background: rgba(15, 23, 42, 0.025);
+}
+
+html[data-theme="light"] .calendar-day-current:hover,
+html[data-theme="light"] .calendar-day-outside:hover {
+  background: rgba(243, 146, 0, 0.08);
+}
+
+html[data-theme="light"] .calendar-day-disabled {
+  color: rgba(148, 163, 184, 0.72);
+  background: rgba(148, 163, 184, 0.08);
+}
+
+html[data-theme="light"] .calendar-day-selected {
+  background: linear-gradient(135deg, #ee8b2f, #f5a14d);
+  color: #ffffff;
+}
+
+.section-toggle-button {
+  border: 1px solid rgba(243, 146, 0, 0.92);
+  background: linear-gradient(135deg, rgba(243, 146, 0, 0.98), rgba(245, 161, 77, 0.98));
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(243, 146, 0, 0.24);
+  text-shadow: none;
+}
+
+.section-toggle-button:hover {
+  border-color: rgba(224, 108, 0, 0.96);
+  background: linear-gradient(135deg, rgba(224, 108, 0, 0.98), rgba(243, 146, 0, 0.98));
+  color: #ffffff;
+}
+
+html[data-theme="light"] .section-toggle-button,
+html[data-theme="light"] .section-toggle-button:hover,
+html[data-theme="dark"] .section-toggle-button,
+html[data-theme="dark"] .section-toggle-button:hover {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.selection-chip-selected {
+  border-color: rgba(238, 139, 47, 0.78);
+  background: linear-gradient(135deg, #e97f1a, #f5a14d);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(240, 138, 44, 0.24);
+  text-shadow: none;
+}
+
+html[data-theme="light"] .selection-chip-selected {
+  border-color: rgba(238, 139, 47, 0.84);
+  background: linear-gradient(135deg, #e97f1a, #f5a14d);
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(240, 138, 44, 0.24);
+  text-shadow: none;
+}
+html[data-theme="light"] .bg-panel .text-slate-400,
+html[data-theme="light"] .bg-panel-2 .text-slate-400,
+html[data-theme="light"] .bg-panel [class*="text-white\/"],
+html[data-theme="light"] .bg-panel-2 [class*="text-white\/"],
+html[data-theme="light"] .bg-row .text-slate-400,
+html[data-theme="light"] .bg-row [class*="text-white\/"] {
+  color: rgba(71, 85, 105, 0.9);
+  text-shadow: none;
+}

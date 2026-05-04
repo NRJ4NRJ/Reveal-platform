@@ -1,0 +1,17 @@
+<div class="header-shell">
+  <div class="header-band">
+    {% if report.document.logo_white %}
+    <img src="{{ report.document.logo_white }}" alt="REVEAL logo">
+    {% else %}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" style="height:22px;width:auto;" aria-label="REVEAL logo">
+      <text x="2" y="34" font-family="Aptos,Calibri,Arial,Helvetica,sans-serif" font-size="30" font-weight="700" letter-spacing="0.10em" fill="#FFFFFF">REVEAL</text>
+      <rect x="2" y="39" width="52" height="3" rx="1.5" fill="#F39200"/>
+    </svg>
+    {% endif %}
+    <div class="header-copy">
+      <p class="header-site">{{ report.document.site_name }}</p>
+      <p class="header-company">REVEAL Performance Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>

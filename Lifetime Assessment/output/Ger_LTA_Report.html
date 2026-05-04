@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ger (Les Herbreux) — Lifetime Assessment</title>
+  <link rel="icon" href="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_favicon_sq.jpg">
+  <style>
+    :root {
+      --color-primary: #0B2A3D;
+      --color-accent: #F39200;
+      --color-secondary: #3E516C;
+      --color-indigo: #27275A;
+      --color-text: #1F2933;
+      --color-muted: #6B7785;
+      --color-bg: #F4F6F8;
+      --color-border: #D9E0E6;
+      --color-success: #70AD47;
+      --color-warning: #C98A00;
+      --color-danger: #C62828;
+      --font-sans: Aptos, Calibri, Arial, Helvetica, sans-serif;
+      --page-margin-top: 12mm;
+      --page-margin-right: 12mm;
+      --page-margin-bottom: 14mm;
+      --page-margin-left: 12mm;
+    }
+  </style>
+  <style>html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 10pt;
+  line-height: 1.38;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.page {
+  position: relative;
+  min-height: 297mm;
+  background: #ffffff;
+}
+
+.header-shell {
+  margin-bottom: 6mm;
+}
+
+.header-band,
+.cover-band {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 7mm 12mm 5.5mm;
+  overflow: hidden;
+}
+
+.header-band img,
+.cover-logo {
+  width: auto;
+  max-width: 185px;
+  max-height: 24mm;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.header-copy {
+  min-width: 0;
+  padding-top: 1mm;
+  margin-left: auto;
+  text-align: right;
+}
+
+.header-site,
+.header-company,
+.eyebrow,
+.kpi-label,
+.kpi-target,
+.kpi-subtext,
+.table-card-header p,
+.section-summary,
+.note-list p,
+.cover-subtitle {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.header-site,
+.header-company {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.header-site {
+  font-size: 8.4pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header-company {
+  font-size: 8.2pt;
+  margin-top: 2px;
+}
+
+.header-accent,
+.cover-accent {
+  position: relative;
+  height: 4px;
+  background: var(--color-accent);
+}
+
+.header-accent::after,
+.cover-accent::after {
+  content: &#34;&#34;;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 16px solid transparent;
+  border-top: 4px solid var(--color-accent);
+}
+
+.page-content,
+.cover-body {
+  padding: 0 10.5mm 8mm;
+}
+
+.cover-body {
+  padding-top: 10mm;
+}
+
+.cover-hero {
+  width: 100%;
+  height: 118mm;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(11, 42, 61, 0.14), rgba(62, 81, 108, 0.08));
+  border: 1px solid var(--color-border);
+  margin-bottom: 10mm;
+}
+
+.cover-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cover-hero-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16mm;
+}
+
+.cover-panel {
+  border: 2.4px solid var(--color-accent);
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 8mm 9mm;
+}
+
+.cover-page h1,
+.section-heading h2,
+.cover-panel h1 {
+  margin: 0 0 5px;
+  color: var(--color-primary);
+  line-height: 1.12;
+}
+
+.cover-panel h1 {
+  font-size: 21pt;
+  max-width: 165mm;
+  color: var(--color-primary);
+}
+
+.cover-subtitle {
+  margin-bottom: 7mm;
+  font-size: 10pt;
+}
+
+.cover-metadata,
+.metadata-card dl {
+  display: grid;
+  gap: 8px;
+}
+
+.cover-metadata div,
+.metadata-card dl div {
+  display: grid;
+  grid-template-columns: minmax(120px, 150px) 1fr;
+  gap: 8px;
+}
+
+.cover-metadata dt,
+.metadata-card dt {
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.cover-metadata dd,
+.metadata-card dd {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.section-heading {
+  margin-bottom: 3.5mm;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 7.6pt;
+  color: var(--color-secondary);
+  margin-bottom: 4px;
+}
+
+.section-summary {
+  max-width: 170mm;
+  font-size: 9pt;
+}
+
+.commentary-card,
+.kpi-card,
+.metadata-card,
+.table-card,
+.figure-card,
+.findings-card,
+.note-list,
+.toc-group {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #ffffff;
+  break-inside: avoid;
+}
+
+.commentary-card {
+  background: linear-gradient(180deg, #fbfcfd 0%, #f6f8fa 100%);
+  border-left: 3px solid var(--color-accent);
+  padding: 3.4mm 3.6mm 3mm;
+  margin-bottom: 3.2mm;
+}
+
+.commentary-card h3 {
+  margin: 0 0 4px;
+  color: var(--color-primary);
+  font-size: 10pt;
+}
+
+.commentary-card p {
+  margin: 0 0 5px;
+}
+
+.commentary-card p:last-child {
+  margin-bottom: 0;
+}
+
+.kpi-grid,
+.metadata-grid,
+.figure-grid,
+.toc-groups {
+  display: grid;
+  gap: 3mm;
+  margin-bottom: 3mm;
+}
+
+.kpi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metadata-grid {
+  grid-template-columns: 1fr;
+}
+
+.figure-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.figure-card.width-full {
+  grid-column: 1 / -1;
+}
+
+.figure-card.width-half {
+  grid-column: span 1;
+}
+
+.kpi-card,
+.metadata-card,
+.table-card,
+.figure-card,
+.findings-card,
+.note-list,
+.toc-group {
+  padding: 2.8mm;
+}
+
+.kpi-card {
+  background: var(--color-bg);
+}
+
+.kpi-value {
+  margin: 4px 0 2px;
+  font-size: 15.5pt;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.status-danger .kpi-value {
+  color: var(--color-danger);
+}
+
+.status-warning .kpi-value {
+  color: var(--color-warning);
+}
+
+.status-success .kpi-value {
+  color: var(--color-success);
+}
+
+.status-info .kpi-value {
+  color: var(--color-secondary);
+}
+
+.figure-card img {
+  width: 100%;
+  height: auto;
+  max-height: 82mm;
+  display: block;
+  object-fit: contain;
+}
+
+.figure-card.width-half img {
+  max-height: 62mm;
+}
+
+.figure-card figcaption {
+  display: grid;
+  gap: 2px;
+  margin-top: 6px;
+  font-size: 8.4pt;
+  color: var(--color-muted);
+}
+
+.table-card-header h3,
+.findings-card h3 {
+  margin: 0 0 4px;
+  color: var(--color-primary);
+  font-size: 10pt;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.report-table th,
+.report-table td {
+  border-top: 1px solid var(--color-border);
+  padding: 5px 6px;
+  vertical-align: top;
+  text-align: left;
+  word-break: break-word;
+  font-size: 7.8pt;
+}
+
+.report-table thead {
+  display: table-header-group;
+}
+
+.report-table thead th {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.report-table tr.row-danger td {
+  background: #fdecea;
+}
+
+.report-table tr.row-warning td {
+  background: #fff5e6;
+}
+
+.report-table tr.row-success td {
+  background: #edf7e9;
+}
+
+.report-table tr.row-info td {
+  background: #edf4fb;
+}
+
+.findings-list {
+  display: grid;
+  gap: 3mm;
+}
+
+.finding {
+  border-left: 3px solid var(--color-border);
+  padding-left: 3mm;
+}
+
+.finding h4 {
+  margin: 0 0 3px;
+  font-size: 8.6pt;
+  color: var(--color-primary);
+}
+
+.finding p {
+  margin: 0;
+  font-size: 8.2pt;
+}
+
+.finding-danger {
+  border-left-color: var(--color-danger);
+}
+
+.finding-warning {
+  border-left-color: var(--color-warning);
+}
+
+.finding-success {
+  border-left-color: var(--color-success);
+}
+
+.finding-info {
+  border-left-color: var(--color-secondary);
+}
+
+.note-list {
+  background: #fbfcfd;
+}
+
+.note-list p + p {
+  margin-top: 4px;
+}
+
+.toc-groups {
+  grid-template-columns: 1fr;
+}
+
+.toc-group-header {
+  padding-bottom: 3mm;
+  margin-bottom: 3mm;
+  border-bottom: 2px solid rgba(243, 146, 0, 0.7);
+}
+
+.toc-group-header h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 10pt;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2.5mm;
+}
+
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+  font-size: 9pt;
+}
+
+.toc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  flex: 0 0 auto;
+}
+
+.page-executive-summary .commentary-card p {
+  margin-bottom: 3px;
+}
+
+.page-executive-summary .kpi-grid,
+.page-executive-summary .figure-grid,
+.page-executive-summary .table-card {
+  margin-bottom: 2.2mm;
+}
+
+.page-executive-summary .report-table th,
+.page-executive-summary .report-table td,
+.page-executive-summary .finding p {
+  font-size: 7.4pt;
+}
+
+.page-data-quality .figure-card img {
+  max-height: 74mm;
+}
+
+.page-data-quality .commentary-card {
+  margin-bottom: 2.6mm;
+}
+
+.page-data-quality .report-table th,
+.page-data-quality .report-table td {
+  font-size: 7.5pt;
+}
+
+.page-data-quality-detail .figure-card img {
+  max-height: 124mm;
+}
+
+.page-data-quality-detail .report-table {
+  table-layout: auto;
+}
+
+.page-data-quality-detail .report-table th,
+.page-data-quality-detail .report-table td {
+  font-size: 7.2pt;
+}
+
+.page-inverter-performance .figure-card img {
+  max-height: 86mm;
+}
+
+.page-inverter-performance .report-table th,
+.page-inverter-performance .report-table td {
+  font-size: 7.5pt;
+}
+
+.page-specific-yield .commentary-card {
+  margin-bottom: 2.4mm;
+}
+
+.page-specific-yield .figure-card img {
+  max-height: 132mm;
+}
+
+.page-availability-reliability .figure-card img {
+  max-height: 80mm;
+}
+
+.page-availability-reliability .report-table {
+  table-layout: auto;
+}
+
+/* Fleet comparison — figure + table must share one page */
+.page-fleet-comparison .figure-card img {
+  max-height: 68mm;
+}
+
+.page-fleet-comparison .commentary-card {
+  padding: 2mm 3mm;
+  margin-bottom: 1.8mm;
+}
+
+.page-fleet-comparison .report-table th,
+.page-fleet-comparison .report-table td {
+  font-size: 7pt;
+  padding: 2px 4px;
+}
+
+/* Availability — figure + table must share one page */
+.page-availability-reliability .commentary-card {
+  padding: 2mm 3mm;
+  margin-bottom: 1.8mm;
+}
+
+.page-losses .figure-card img {
+  max-height: 78mm;
+}
+
+.page-losses .report-table th,
+.page-losses .report-table td {
+  font-size: 7.4pt;
+}
+
+.page-targeted-diagnostics .figure-card img {
+  max-height: 102mm;
+}
+
+.page-inverter-performance .section-grid {
+  gap: 4mm;
+}
+
+.page-data-quality .commentary-card,
+.page-data-quality-detail .commentary-card,
+.page-inverter-performance .commentary-card,
+.page-availability-reliability .commentary-card {
+  padding: 2mm 3mm 2mm;
+  margin-bottom: 1.8mm;
+}
+
+.page-data-quality .figure-card img {
+  max-height: 88mm;
+}
+
+.page-data-quality .report-table th,
+.page-data-quality .report-table td,
+.page-data-quality-detail .report-table th,
+.page-data-quality-detail .report-table td {
+  font-size: 6.9pt;
+  padding: 3px 4px;
+}
+
+.page-data-quality .finding h4,
+.page-data-quality .finding p {
+  font-size: 7.8pt;
+}
+
+.page-data-quality .section-summary,
+.page-data-quality-detail .section-summary,
+.page-irradiance-coherence .section-summary,
+.page-appendix-clipping .section-summary,
+.page-weather-correlation-appendix .section-summary {
+  margin-bottom: 2mm;
+}
+
+.page-data-quality .kpi-grid {
+  margin-bottom: 1.5mm;
+}
+
+.page-data-quality .figure-card {
+  padding: 2mm;
+}
+
+.page-data-quality .figure-card img {
+  max-height: 62mm;
+}
+
+.page-data-quality .findings-card {
+  margin-top: 0.5mm;
+}
+
+.page-data-quality-detail .figure-card.width-full img {
+  max-height: 102mm;
+}
+
+.page-data-quality-detail .figure-card.width-half img {
+  max-height: 44mm;
+}
+
+.page-data-quality-detail .figure-grid {
+  gap: 2.6mm;
+  margin-bottom: 2.4mm;
+}
+
+.page-data-quality-detail .findings-card {
+  margin-top: 1.4mm;
+}
+
+.page-data-quality-detail .findings-card .finding {
+  padding: 2.2mm 2.6mm;
+}
+
+.page-data-quality-detail .finding h4,
+.page-data-quality-detail .finding p {
+  font-size: 7.2pt;
+}
+
+.page-inverter-performance .section-summary {
+  margin-bottom: 3mm;
+}
+
+.page-inverter-performance .kpi-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5mm;
+  margin-bottom: 2.4mm;
+}
+
+.page-inverter-performance .kpi-card {
+  padding: 2.3mm 2.8mm;
+}
+
+.page-inverter-performance .figure-card img {
+  max-height: 86mm;
+}
+
+.page-inverter-performance .report-table.compact th,
+.page-inverter-performance .report-table.compact td,
+.page-inverter-performance .report-table th,
+.page-inverter-performance .report-table td {
+  padding-top: 0.9mm;
+  padding-bottom: 0.9mm;
+  font-size: 6.7pt;
+}
+
+.page-availability-reliability .section-grid {
+  gap: 4mm;
+}
+
+.page-availability-reliability .section-summary {
+  margin-bottom: 3mm;
+}
+
+.page-availability-reliability .kpi-grid {
+  margin-bottom: 3mm;
+  gap: 2.5mm;
+}
+
+.page-availability-reliability .kpi-card {
+  padding: 2.6mm 3mm;
+}
+
+.page-availability-reliability .figure-card img {
+  max-height: 80mm;
+}
+
+.page-availability-reliability .report-table th,
+.page-availability-reliability .report-table td {
+  padding-top: 1.0mm;
+  padding-bottom: 1.0mm;
+  font-size: 6.9pt;
+}
+
+.page-losses .section-grid {
+  gap: 4mm;
+}
+
+.page-losses .section-summary {
+  margin-bottom: 3mm;
+}
+
+.page-losses .kpi-grid {
+  margin-bottom: 3mm;
+  gap: 2.5mm;
+}
+
+.page-losses .kpi-card {
+  padding: 2.6mm 3mm;
+}
+
+.page-losses .figure-card img {
+  max-height: 74mm;
+}
+
+.page-losses .figure-card.width-half img {
+  max-height: 58mm;
+}
+
+.page-losses .report-table th,
+.page-losses .report-table td {
+  padding-top: 1.35mm;
+  padding-bottom: 1.35mm;
+  font-size: 7.05pt;
+}
+
+.page-performance-overview .section-summary {
+  margin-bottom: 2.6mm;
+}
+
+.page-performance-overview .commentary-card {
+  padding: 2.5mm 3mm 2.4mm;
+  margin-bottom: 2.4mm;
+}
+
+.page-performance-overview .commentary-card p {
+  margin-bottom: 2px;
+}
+
+.page-performance-overview .kpi-grid {
+  margin-bottom: 2.6mm;
+  gap: 2.4mm;
+}
+
+.page-performance-overview .figure-grid {
+  gap: 2.2mm;
+}
+
+.page-performance-overview .figure-card {
+  padding: 2.5mm;
+}
+
+.page-performance-overview .figure-card.width-half img {
+  max-height: 76mm;
+}
+
+.page-performance-overview .figure-card.width-full img {
+  max-height: 112mm;
+}
+
+.page-performance-overview .figure-caption {
+  margin-top: 1.2mm;
+}
+
+.page-targeted-diagnostics .section-grid {
+  gap: 4mm;
+}
+
+.page-targeted-diagnostics .section-summary {
+  margin-bottom: 3mm;
+}
+
+.page-targeted-diagnostics .kpi-grid {
+  display: none;
+}
+
+.page-targeted-diagnostics .figure-grid {
+  grid-template-columns: 1fr;
+  gap: 4mm;
+}
+
+.page-targeted-diagnostics .figure-card {
+  padding: 3.2mm;
+}
+
+.page-targeted-diagnostics .figure-card img {
+  max-height: 132mm;
+}
+
+.page-targeted-diagnostics .figure-caption {
+  margin-top: 1.6mm;
+}
+
+.page-appendix-limitations .report-table th,
+.page-appendix-limitations .report-table td {
+  font-size: 6.75pt;
+  padding: 2px 4px;
+  line-height: 1.16;
+}
+
+.page-appendix-limitations .section-summary {
+  margin-bottom: 1.6mm;
+}
+
+.page-appendix-limitations .table-card {
+  margin-top: 0;
+  margin-bottom: 1.4mm;
+}
+
+.page-appendix-limitations .table-card-header {
+  padding-bottom: 1mm;
+}
+
+.page-appendix-limitations .report-table {
+  table-layout: fixed;
+}
+
+.page-appendix-limitations .report-table th:nth-child(1),
+.page-appendix-limitations .report-table td:nth-child(1) {
+  width: 24%;
+}
+
+.page-appendix-limitations .report-table th:nth-child(2),
+.page-appendix-limitations .report-table td:nth-child(2) {
+  width: 12%;
+}
+
+.page-appendix-limitations .report-table th:nth-child(3),
+.page-appendix-limitations .report-table td:nth-child(3) {
+  width: 64%;
+}
+
+.page-appendix-limitations .report-table th:nth-child(4),
+.page-appendix-limitations .report-table td:nth-child(4) {
+  width: 55%;
+}
+
+.page-appendix-limitations .report-table th:nth-child(1):nth-last-child(4),
+.page-appendix-limitations .report-table td:nth-child(1):nth-last-child(4) {
+  width: 10%;
+}
+
+.page-appendix-limitations .report-table th:nth-child(2):nth-last-child(3),
+.page-appendix-limitations .report-table td:nth-child(2):nth-last-child(3) {
+  width: 14%;
+}
+
+.page-appendix-limitations .report-table th:nth-child(3):nth-last-child(2),
+.page-appendix-limitations .report-table td:nth-child(3):nth-last-child(2) {
+  width: 14%;
+}
+
+.page-appendix-limitations .report-table th:nth-child(4):nth-last-child(1),
+.page-appendix-limitations .report-table td:nth-child(4):nth-last-child(1) {
+  width: 62%;
+}
+
+.page-appendix-mttf-overview .figure-card.width-half img {
+  max-height: 88mm;
+}
+
+.page-appendix-mttf-detail .report-table th,
+.page-appendix-mttf-detail .report-table td {
+  font-size: 6.6pt;
+  padding: 3px 4px;
+}
+
+.page-appendix-clipping .figure-card img {
+  max-height: 148mm;
+}
+
+.page-appendix-clipping .figure-grid {
+  grid-template-columns: 1fr;
+}
+
+.page-appendix-clipping .commentary-card,
+.page-weather-correlation-appendix .commentary-card {
+  margin-bottom: 2mm;
+}
+
+.page-weather-correlation-appendix .figure-card img {
+  max-height: 178mm;
+}
+
+.page-irradiance-coherence .figure-grid {
+  gap: 2.2mm;
+}
+
+.page-irradiance-coherence .figure-card {
+  padding: 2.5mm;
+}
+
+.page-irradiance-coherence .figure-card.width-half img {
+  max-height: 64mm;
+}
+
+.page-irradiance-coherence .figure-card.width-full img {
+  max-height: 108mm;
+}
+
+.page-irradiance-coherence .report-table th,
+.page-irradiance-coherence .report-table td {
+  font-size: 6.7pt;
+  padding: 2px 4px;
+}
+
+.page-technical-parameters .report-table th,
+.page-technical-parameters .report-table td,
+.page-performance-kpi-dashboard .report-table th,
+.page-performance-kpi-dashboard .report-table td,
+.page-action-punchlist .report-table th,
+.page-action-punchlist .report-table td {
+  font-size: 7.2pt;
+}
+
+.page-technical-parameters .commentary-card,
+.page-action-punchlist .commentary-card,
+.page-appendix-mttf-detail .table-card {
+  margin-bottom: 2mm;
+}
+
+.page-technical-parameters .section-heading,
+.page-action-punchlist .section-heading,
+.page-appendix-mttf-detail .section-heading {
+  margin-bottom: 2.2mm;
+}
+
+.page-technical-parameters .section-summary,
+.page-action-punchlist .section-summary,
+.page-appendix-mttf-detail .section-summary {
+  font-size: 8.4pt;
+}
+
+.page-technical-parameters .section-summary,
+.page-performance-kpi-dashboard .section-summary {
+  margin-bottom: 2mm;
+}
+
+.page-technical-parameters .commentary-card {
+  padding: 2.2mm 2.8mm 2.1mm;
+  margin-bottom: 3.4mm;
+}
+
+.page-performance-kpi-dashboard .commentary-card {
+  padding: 2.2mm 2.8mm 2.1mm;
+  margin-bottom: 1.6mm;
+}
+
+.page-technical-parameters .commentary-card p,
+.page-performance-kpi-dashboard .commentary-card p {
+  margin-bottom: 0;
+}
+
+.page-technical-parameters .table-card,
+.page-performance-kpi-dashboard .table-card {
+  margin-top: 0;
+}
+
+.page-technical-parameters .table-card-header,
+.page-performance-kpi-dashboard .table-card-header {
+  padding-bottom: 1.4mm;
+}
+
+.page-technical-parameters .table-card-header p,
+.page-performance-kpi-dashboard .table-card-header p {
+  margin-top: 1mm;
+  font-size: 7.6pt;
+}
+
+.page-technical-parameters .report-table th,
+.page-technical-parameters .report-table td {
+  font-size: 7.2pt;
+  padding: 3px 4px;
+  line-height: 1.18;
+}
+
+.page-technical-parameters .report-table th:nth-child(1),
+.page-technical-parameters .report-table td:nth-child(1) {
+  width: 23%;
+}
+
+.page-technical-parameters .report-table th:nth-child(2),
+.page-technical-parameters .report-table td:nth-child(2) {
+  width: 25%;
+}
+
+.page-technical-parameters .report-table th:nth-child(3),
+.page-technical-parameters .report-table td:nth-child(3) {
+  width: 52%;
+}
+
+.page-technical-parameters .report-table,
+.page-performance-kpi-dashboard .report-table,
+.page-appendix-faults .report-table {
+  table-layout: auto;
+}
+
+.page-technical-parameters .report-table th,
+.page-technical-parameters .report-table td,
+.page-performance-kpi-dashboard .report-table th,
+.page-performance-kpi-dashboard .report-table td,
+.page-appendix-faults .report-table th,
+.page-appendix-faults .report-table td {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.page-performance-kpi-dashboard .report-table th,
+.page-performance-kpi-dashboard .report-table td {
+  font-size: 7.2pt;
+  padding: 3px 4px;
+  line-height: 1.18;
+}
+
+.page-performance-kpi-dashboard .report-table th:nth-child(1),
+.page-performance-kpi-dashboard .report-table td:nth-child(1) {
+  width: 20%;
+}
+
+.page-performance-kpi-dashboard .report-table th:nth-child(2),
+.page-performance-kpi-dashboard .report-table td:nth-child(2) {
+  width: 16%;
+}
+
+.page-performance-kpi-dashboard .report-table th:nth-child(3),
+.page-performance-kpi-dashboard .report-table td:nth-child(3) {
+  width: 20%;
+}
+
+.page-performance-kpi-dashboard .report-table th:nth-child(4),
+.page-performance-kpi-dashboard .report-table td:nth-child(4) {
+  width: 44%;
+}
+
+.page-performance-kpi-dashboard .kpi-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.4mm;
+  margin-bottom: 2.6mm;
+}
+
+.page-performance-kpi-dashboard .kpi-card {
+  padding: 2.4mm 2.8mm;
+}
+
+.page-appendix-power-curve .figure-grid,
+.page-appendix-performance-index .figure-grid,
+.page-appendix-faults .figure-grid {
+  grid-template-columns: 1fr;
+}
+
+.page-appendix-power-curve .figure-card,
+.page-appendix-performance-index .figure-card {
+  padding: 2.2mm;
+}
+
+.page-appendix-power-curve .figure-card img {
+  max-height: 198mm;
+}
+
+.page-appendix-performance-index .figure-card img {
+  max-height: 120mm;
+}
+
+.page-appendix-power-curve .figure-card figcaption {
+  margin-top: 1mm;
+}
+
+.page-appendix-faults .table-card {
+  margin-top: 0;
+}
+
+.page-appendix-faults .commentary-card {
+  margin-bottom: 1.4mm;
+}
+
+.page-appendix-faults .figure-card {
+  padding: 2.2mm;
+}
+
+.page-appendix-faults .figure-card img {
+  max-height: 88mm;
+}
+
+.page-appendix-faults .report-table th,
+.page-appendix-faults .report-table td {
+  font-size: 6.9pt;
+  padding: 3px 4px;
+  line-height: 1.16;
+}
+
+.page-appendix-faults .report-table th:nth-child(1),
+.page-appendix-faults .report-table td:nth-child(1) {
+  width: 28%;
+}
+
+.page-appendix-faults .report-table th:nth-child(2),
+.page-appendix-faults .report-table td:nth-child(2) {
+  width: 10%;
+}
+
+.page-appendix-faults .report-table th:nth-child(3),
+.page-appendix-faults .report-table td:nth-child(3) {
+  width: 8%;
+}
+
+.page-appendix-faults .report-table th:nth-child(4),
+.page-appendix-faults .report-table td:nth-child(4) {
+  width: 12%;
+}
+
+.page-appendix-faults .report-table th:nth-child(5),
+.page-appendix-faults .report-table td:nth-child(5) {
+  width: 42%;
+}
+
+.page-action-punchlist .report-table th,
+.page-action-punchlist .report-table td {
+  font-size: 7.5pt;
+  padding: 3px 4px;
+  line-height: 1.22;
+}
+
+.page-action-punchlist .section-summary {
+  margin-bottom: 1.8mm;
+}
+
+.page-action-punchlist .commentary-card {
+  padding: 2.1mm 2.6mm 2mm;
+  margin-bottom: 1.5mm;
+}
+
+.page-action-punchlist .commentary-card p {
+  margin-bottom: 0;
+}
+
+.page-action-punchlist .table-card-header {
+  padding-bottom: 1.2mm;
+}
+
+.page-action-punchlist .report-table th:nth-child(1),
+.page-action-punchlist .report-table td:nth-child(1) {
+  width: 6%;
+}
+
+.page-action-punchlist .report-table th:nth-child(2),
+.page-action-punchlist .report-table td:nth-child(2) {
+  width: 9%;
+}
+
+.page-action-punchlist .report-table th:nth-child(3),
+.page-action-punchlist .report-table td:nth-child(3) {
+  width: 30%;
+}
+
+.page-action-punchlist .report-table th:nth-child(4),
+.page-action-punchlist .report-table td:nth-child(4) {
+  width: 38%;
+}
+
+.page-action-punchlist .report-table th:nth-child(5),
+.page-action-punchlist .report-table td:nth-child(5) {
+  width: 9%;
+}
+
+.page-action-punchlist .report-table th:nth-child(6),
+.page-action-punchlist .report-table td:nth-child(6) {
+  width: 8%;
+}
+
+.page-appendix-mttf-detail .report-table th:nth-child(1),
+.page-appendix-mttf-detail .report-table td:nth-child(1) {
+  width: 18%;
+}
+
+.page-appendix-mttf-detail .report-table th:nth-child(2),
+.page-appendix-mttf-detail .report-table td:nth-child(2) {
+  width: 10%;
+}
+
+.page-appendix-mttf-detail .report-table th:nth-child(3),
+.page-appendix-mttf-detail .report-table td:nth-child(3) {
+  width: 18%;
+}
+
+.page-appendix-mttf-detail .report-table th:nth-child(4),
+.page-appendix-mttf-detail .report-table td:nth-child(4),
+.page-appendix-mttf-detail .report-table th:nth-child(5),
+.page-appendix-mttf-detail .report-table td:nth-child(5),
+.page-appendix-mttf-detail .report-table th:nth-child(6),
+.page-appendix-mttf-detail .report-table td:nth-child(6) {
+  width: 12%;
+}
+
+.page-performance-overview .figure-card img,
+.page-losses .figure-card img {
+  max-height: 110mm;
+}
+
+.page-site-overview .figure-grid {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.page-site-overview .figure-card.width-full img {
+  max-height: 95mm;
+}
+
+/* ── Turbine intelligence page ─────────────────────────────────────────── */
+.page-turbine-intelligence .report-table th,
+.page-turbine-intelligence .report-table td {
+  font-size: 6.4pt;
+  padding: 2px 3px;
+  line-height: 1.3;
+}
+
+.page-turbine-intelligence .report-table th:nth-child(1),
+.page-turbine-intelligence .report-table td:nth-child(1) { width: 13%; }
+
+.page-turbine-intelligence .report-table th:nth-child(2),
+.page-turbine-intelligence .report-table td:nth-child(2) { width: 35%; }
+
+.page-turbine-intelligence .report-table th:nth-child(3),
+.page-turbine-intelligence .report-table td:nth-child(3) { width: 8%; text-align: center; font-weight: bold; white-space: nowrap; }
+
+.page-turbine-intelligence .report-table th:nth-child(4),
+.page-turbine-intelligence .report-table td:nth-child(4) { width: 44%; }
+
+.page-turbine-intelligence .commentary-card {
+  padding: 2mm 3mm;
+  margin-bottom: 1.8mm;
+}
+
+.page-turbine-intelligence .kpi-grid {
+  margin-bottom: 2mm;
+}
+
+.page-turbine-intelligence .figure-card img {
+  width: 100%;
+  height: 95mm;
+  object-fit: cover;
+}
+
+.page-turbine-intelligence .figure-grid {
+  grid-template-columns: 1fr;
+  margin-bottom: 2mm;
+}
+
+.page-turbine-intelligence .table-card {
+  page-break-inside: avoid;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   LIFETIME ASSESSMENT — LTA-specific overrides
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Row status colours used in the lifetime-results and fatigue-assessment tables */
+tr.row-danger td  { background: #fde8e8; color: #6a0f0f; }
+tr.row-warning td { background: #fef6e4; color: #5c3a00; }
+
+/* ── Executive summary ──────────────────────────────────────────────────── */
+.page-executive-summary .kpi-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── Fatigue assessment ─────────────────────────────────────────────────── */
+.page-fatigue-assessment .figure-card img {
+  max-height: 90mm;
+}
+
+.page-fatigue-assessment .report-table th,
+.page-fatigue-assessment .report-table td {
+  font-size: 7.5pt;
+  padding: 2px 4px;
+}
+
+/* ── Lifetime results ───────────────────────────────────────────────────── */
+.page-lifetime-results .figure-card img {
+  max-height: 90mm;
+}
+
+.page-lifetime-results .report-table th,
+.page-lifetime-results .report-table td {
+  font-size: 7.5pt;
+  padding: 2px 4px;
+}
+
+/* ── Extension scenarios ────────────────────────────────────────────────── */
+.page-extension-scenarios .figure-card img {
+  max-height: 80mm;
+}
+
+.page-extension-scenarios .report-table th,
+.page-extension-scenarios .report-table td {
+  font-size: 8pt;
+  padding: 3px 5px;
+}
+
+/* ── Wind resource / power production ───────────────────────────────────── */
+.page-wind-resource .figure-card img,
+.page-power-production .figure-card img,
+.page-energy-availability .figure-card img {
+  max-height: 95mm;
+}
+
+/* ── Operational requirements ────────────────────────────────────────────── */
+.page-operational-requirements .report-table th,
+.page-operational-requirements .report-table td {
+  font-size: 8pt;
+  padding: 3px 5px;
+}
+</style>
+  <style>@page {
+  size: A4;
+  margin: 0;
+  @bottom-right {
+    content: counter(page);
+    color: var(--color-accent);
+    font-family: var(--font-sans);
+    font-size: 9pt;
+    font-weight: 700;
+  }
+}
+
+@page cover {
+  @bottom-right {
+    content: &#34;&#34;;
+  }
+}
+
+body {
+  counter-reset: page;
+}
+
+.cover-page {
+  page: cover;
+}
+
+.page {
+  break-after: page;
+  padding-bottom: 10mm;
+}
+
+h2,
+h3,
+h4 {
+  break-after: avoid;
+}
+
+.header-shell,
+.section-heading,
+.commentary-card,
+.figure-card,
+.table-card,
+.findings-card,
+.kpi-card,
+.metadata-card,
+.toc-group,
+.note-list {
+  break-inside: avoid;
+}
+
+.report-table thead {
+  display: table-header-group;
+}
+
+.report-table tr {
+  break-inside: avoid;
+}
+@page {
+  @bottom-center {
+    content: &#34;&#34;;
+  }
+
+  @bottom-right {
+    content: counter(page);
+    color: var(--color-accent);
+    font-size: 9pt;
+    font-weight: 700;
+  }
+}
+</style>
+</head>
+<body>
+<section class="page cover-page">
+  <div class="cover-band">
+    <img class="cover-logo" src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company"></p>
+    </div>
+  </div>
+  <div class="cover-accent"></div>
+  <div class="cover-body layout-block">
+    <div class="cover-hero cover-hero-fallback">
+      <div>
+        <p class="eyebrow">Renewable Energy SCADA Assessment</p>
+        <h1>Ger (Les Herbreux) — Lifetime Assessment</h1>
+      </div>
+    </div>
+    <div class="cover-panel">
+      <p class="eyebrow">Renewable Energy SCADA Assessment</p>
+      <h1>Ger (Les Herbreux) — Lifetime Assessment</h1>
+      <p class="cover-subtitle">Wind Farm Structural Lifetime Assessment</p>
+      <dl class="cover-metadata">
+        <div>
+          <dt>Site</dt>
+          <dd>Ger (Les Herbreux)</dd>
+        </div>
+        <div>
+          <dt>Turbines</dt>
+          <dd>4 x Enercon E82-2.0MW (E82 E2)</dd>
+        </div>
+        <div>
+          <dt>Commissioning</dt>
+          <dd>December 2010</dd>
+        </div>
+        <div>
+          <dt>Assessment date</dt>
+          <dd>June 2025</dd>
+        </div>
+        <div>
+          <dt>Design lifetime</dt>
+          <dd>20 years</dd>
+        </div>
+        <div>
+          <dt>Standard</dt>
+          <dd>IEC 61400-1:2005+AMD1:2010</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section><section class="page standard-page page-toc">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content layout-block">
+    <h2>Table of Contents</h2>
+    <p class="section-summary">Report structure and section navigation.</p>
+    <div class="toc-groups">
+      <section class="toc-group">
+        <div class="toc-group-header">
+          <h3>Overview</h3>
+        </div>
+        <ul class="toc-list">
+          <li>
+            <span class="toc-dot"></span>
+            <span>Executive Summary</span>
+          </li>
+        </ul>
+      </section>
+      <section class="toc-group">
+        <div class="toc-group-header">
+          <h3>Main Report</h3>
+        </div>
+        <ul class="toc-list">
+          <li>
+            <span class="toc-dot"></span>
+            <span>Site Overview</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Wind Resource Analysis</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Power Curve &amp; Energy Production</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Energy-Based Availability</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Fatigue Assessment — Methodology &amp; DEL Results</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Structural Lifetime Assessment Results</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Lifetime Extension Scenarios</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Operational Requirements for Lifetime Extension</span>
+          </li>
+          <li>
+            <span class="toc-dot"></span>
+            <span>Key Findings &amp; Recommendations</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section><section class="page standard-page page-executive-summary">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Key Results</p>      <h2>Executive Summary</h2>
+<p class="section-summary">Fatigue-based structural lifetime assessment of 4 x Enercon E82-2.0MW, Ger (Les Herbreux), commissioned December 2010.</p>    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>Based on site-specific wind conditions (mean wind speed 6.72 m/s, Weibull k=2.40) compared to IEC IIA design basis (8.5 m/s), the fatigue loading on this site is significantly below design values.</p>
+      <p>The governing structural component is the blade-to-adapter-hub bolt connection, with a calculated total lifetime of 25.5 years. Without intervention, operation must cease by May 2036.</p>
+      <p>Two extension paths exist: (1) bolt replacement before May 2036 extends operation to January 2042 (31.1 yr total), and (2) full blade assembly replacement before January 2042 enables operation through November 2050 (40 yr, capped for safety).</p>
+      <p>No critical structural defects were identified during the June 2025 technical audit. Energy availability has averaged 98.5% over 2022-2024, indicating a well-maintained fleet.</p>
+    </section>
+    <div class="kpi-grid layout-block">
+<article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Years in operation</p>
+  <p class="kpi-value">14.5 yr</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Design lifetime remaining</p>
+  <p class="kpi-value">5.5 yr</p>
+<p class="kpi-target">to design end Dec 2030</p></article><article class="kpi-card layout-block status-warning">
+  <p class="kpi-label">Baseline remaining lifetime</p>
+  <p class="kpi-value">11.0 yr</p>
+<p class="kpi-target">Bolts — to May 2036</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">Extended lifetime (bolt repl.)</p>
+  <p class="kpi-value">16.6 yr</p>
+<p class="kpi-target">to January 2042</p></article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Site mean wind speed</p>
+  <p class="kpi-value">6.72 m/s</p>
+<p class="kpi-target">IEC IIA design: 8.5 m/s</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">Fleet energy availability</p>
+  <p class="kpi-value">98.5%</p>
+<p class="kpi-target">avg 2022-2024</p></article>    </div>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Structural Lifetime Summary</h3>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>S/N Curve (m)</th>
+        <th>Total Lifetime</th>
+        <th>End Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Blade-adapter-hub bolts</td>
+        <td>4</td>
+        <td>25.5 yr</td>
+        <td>June 2036</td>
+        <td>Governing</td>
+      </tr>
+      <tr class="row-warning">
+        <td>Blade adapters</td>
+        <td>9</td>
+        <td>31.1 yr</td>
+        <td>February 2042</td>
+        <td>Adequate</td>
+      </tr>
+      <tr class="row-warning">
+        <td>Blade roots (GRP)</td>
+        <td>10</td>
+        <td>32.6 yr</td>
+        <td>July 2043</td>
+        <td>Adequate</td>
+      </tr>
+      <tr class="row-success">
+        <td>Hub</td>
+        <td>9</td>
+        <td>40.0 yr</td>
+        <td>December 2050</td>
+        <td>Adequate</td>
+      </tr>
+      <tr class="row-success">
+        <td>Main shaft</td>
+        <td>9</td>
+        <td>40.0 yr</td>
+        <td>December 2050</td>
+        <td>Adequate</td>
+      </tr>
+      <tr class="row-success">
+        <td>Nacelle frame</td>
+        <td>9</td>
+        <td>40.0 yr</td>
+        <td>December 2050</td>
+        <td>Adequate</td>
+      </tr>
+      <tr class="row-success">
+        <td>Steel tower</td>
+        <td>4</td>
+        <td>40.0 yr</td>
+        <td>December 2050</td>
+        <td>Adequate</td>
+      </tr>
+      <tr class="row-success">
+        <td>Tower bolts</td>
+        <td>4</td>
+        <td>40.0 yr</td>
+        <td>December 2050</td>
+        <td>Adequate</td>
+      </tr>
+      <tr class="row-success">
+        <td>Foundation bolts</td>
+        <td>4</td>
+        <td>40.0 yr</td>
+        <td>December 2050</td>
+        <td>Adequate</td>
+      </tr>
+    </tbody>
+  </table>
+</section><section class="findings-card layout-block">
+  <div class="table-card-header">
+    <h3>Key Findings</h3>
+  </div>
+  <div class="findings-list">
+    <article class="finding finding-warning">
+      <h4>Governing component — blade-adapter-hub bolts</h4>
+      <p>Blade-to-adapter-hub connection bolts limit baseline lifetime to 25.5 years (May 2036). Replacement required for any extension scenario.</p>
+    </article>
+    <article class="finding finding-info">
+      <h4>Extension to 40 years feasible</h4>
+      <p>Full blade assembly replacement before January 2042 enables operation to November 2050, subject to continued annual inspections and structural monitoring.</p>
+    </article>
+  </div>
+</section>  </div>
+</section><section class="page standard-page page-site-overview">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Asset description</p>      <h2>Site Overview</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>The Ger (Les Herbreux) wind farm comprises 4 Enercon E82-2.0MW turbines on Concrete (Fertigteilturm) towers at 98.4 m hub height, located near Ger, Normandy, France.</p>
+      <p>The site was commissioned in December 2010 and has operated continuously for over 14 years under the management of Energiequelle GmbH. All four turbines carry the Enercon standard 5-year extended warranty and have been subject to annual third-party technical audits.</p>
+      <p>The type certificate (DEWI-OCC TC-201206 Rev.1) certifies the E82 E2 for IEC wind class IIA, with a design reference mean wind speed of 8.5 m/s and a 20-year design lifetime.</p>
+    </section>
+    <div class="kpi-grid layout-block">
+<article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Turbine model</p>
+  <p class="kpi-value">Enercon E82-2.0MW (E82 E2)</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Number of turbines</p>
+  <p class="kpi-value">4</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Hub height</p>
+  <p class="kpi-value">98.4 m</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Rotor diameter</p>
+  <p class="kpi-value">82 m</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Rated power</p>
+  <p class="kpi-value">2,050 kW</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Installed capacity</p>
+  <p class="kpi-value">8.2 MW</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">IEC wind class</p>
+  <p class="kpi-value">IIA</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Commissioning</p>
+  <p class="kpi-value">December 2010</p>
+</article>    </div>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Technical Parameters</h3>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Site</td>
+        <td>Ger (Les Herbreux)</td>
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td>France</td>
+      </tr>
+      <tr>
+        <td>Turbine model</td>
+        <td>Enercon E82-2.0MW (E82 E2)</td>
+      </tr>
+      <tr>
+        <td>Number of turbines</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>Tower type</td>
+        <td>Concrete (Fertigteilturm)</td>
+      </tr>
+      <tr>
+        <td>Hub height</td>
+        <td>98.38 m</td>
+      </tr>
+      <tr>
+        <td>Rotor diameter</td>
+        <td>82 m</td>
+      </tr>
+      <tr>
+        <td>Rated power</td>
+        <td>2,050 kW per turbine</td>
+      </tr>
+      <tr>
+        <td>Installed capacity</td>
+        <td>8.2 MW</td>
+      </tr>
+      <tr>
+        <td>Commissioning date</td>
+        <td>December 2010</td>
+      </tr>
+      <tr>
+        <td>Design lifetime</td>
+        <td>20 years</td>
+      </tr>
+      <tr>
+        <td>Type certificate</td>
+        <td>TC-201206 Rev.1 — DEWI-OCC GmbH</td>
+      </tr>
+      <tr>
+        <td>IEC standard</td>
+        <td>IEC 61400-1:2005+AMD1:2010</td>
+      </tr>
+      <tr>
+        <td>Cut-in wind speed</td>
+        <td>3.0 m/s</td>
+      </tr>
+      <tr>
+        <td>Rated wind speed</td>
+        <td>13.4 m/s</td>
+      </tr>
+      <tr>
+        <td>Cut-out wind speed</td>
+        <td>34.0 m/s</td>
+      </tr>
+    </tbody>
+  </table>
+</section>  </div>
+</section><section class="page standard-page page-wind-resource">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Site wind characterisation</p>      <h2>Wind Resource Analysis</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>SCADA data from all four turbines covering the period January 2021 to December 2024 (4 years, ~840k records) was used to characterise the site wind regime.</p>
+      <p>The fleet-average Weibull distribution fits to k=2.402, A=7.579 m/s, giving a long-term mean wind speed of 6.72 m/s at hub height. This is significantly below the IEC IIA design basis of 8.5 m/s, indicating that fatigue loading at this site is lighter than the design envelope.</p>
+      <p>Annual mean wind speeds ranged from 6.48 m/s (2024) (lowest) to 7.10 m/s (2023) (highest), confirming the site operates well within the type certificate wind class.</p>
+    </section>
+    <div class="kpi-grid layout-block">
+<article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Fleet mean WS</p>
+  <p class="kpi-value">6.72 m/s</p>
+<p class="kpi-target">hub height 98.4 m</p></article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Weibull k</p>
+  <p class="kpi-value">2.402</p>
+<p class="kpi-target">shape parameter</p></article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Weibull A</p>
+  <p class="kpi-value">7.579 m/s</p>
+<p class="kpi-target">scale parameter</p></article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">IEC IIA design mean</p>
+  <p class="kpi-value">8.5 m/s</p>
+<p class="kpi-target">type certificate basis</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">WS vs design</p>
+  <p class="kpi-value">79%</p>
+<p class="kpi-target">of design value</p></article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">SCADA period</p>
+  <p class="kpi-value">Jan 2021 - Dec 2024</p>
+<p class="kpi-target">4-year dataset</p></article>    </div>
+  </div>
+</section><section class="page standard-page page-wind-resource-cont-1">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Site wind characterisation</p>      <h2>Wind Resource Analysis cont.</h2>
+    </div>
+    <div class="figure-grid layout-block">
+<figure class="figure-card layout-block width-full">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/weibull_fit.svg" alt="Wind speed distribution — site Weibull fit vs IEC IIA design">
+  <figcaption>
+    <strong>Wind Speed Distribution vs IEC IIA Design</strong>
+    <span>Weibull fit to 4-year SCADA dataset vs IEC IIA Rayleigh reference distribution (k=2.0, Vave=8.5 m/s).</span>
+  </figcaption>
+</figure><figure class="figure-card layout-block width-full">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/wind_speed_annual.svg" alt="Annual mean wind speed at hub height, 2021-2024">
+  <figcaption>
+    <strong>Annual Mean Wind Speed at Hub Height</strong>
+    <span>Fleet-averaged annual mean wind speed. IEC IIA design mean (8.5 m/s) shown for reference.</span>
+  </figcaption>
+</figure>    </div>
+  </div>
+</section><section class="page standard-page page-wind-resource-cont-2">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Site wind characterisation</p>      <h2>Wind Resource Analysis cont.</h2>
+    </div>
+    <div class="figure-grid layout-block">
+<figure class="figure-card layout-block width-half">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/wind_rose.svg" alt="Wind direction frequency rose by sector">
+  <figcaption>
+    <strong>Wind Direction Distribution</strong>
+    <span>Frequency of wind direction from all turbines, 2021-2024.</span>
+  </figcaption>
+</figure>    </div>
+  </div>
+</section><section class="page standard-page page-power-production">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Energy output</p>      <h2>Power Curve &amp; Energy Production</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>The fleet power curve is derived from 10-minute average SCADA records for all four turbines over 2021-2024. Records with nacelle availability flags are retained to preserve the full operating population.</p>
+      <p>Total measured fleet energy production over 2022-2024 was 68,856 MWh. The measured power curve tracks closely with the published Enercon E82-2.0MW reference curve up to rated wind speed (13.4 m/s).</p>
+    </section>
+    <div class="kpi-grid layout-block">
+<article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">E1 energy (2022-24)</p>
+  <p class="kpi-value">17,362 MWh</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">E2 energy (2022-24)</p>
+  <p class="kpi-value">18,039 MWh</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">E3 energy (2022-24)</p>
+  <p class="kpi-value">18,135 MWh</p>
+</article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">E4 energy (2022-24)</p>
+  <p class="kpi-value">15,320 MWh</p>
+</article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">Fleet total (2022-24)</p>
+  <p class="kpi-value">68,856 MWh</p>
+</article>    </div>
+    <div class="figure-grid layout-block">
+<figure class="figure-card layout-block width-full">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/power_curve.svg" alt="Fleet average measured power curve vs E82-2.0MW reference">
+  <figcaption>
+    <strong>Fleet Power Curve vs E82 Reference</strong>
+    <span>Binned 10-minute averages for all turbines 2021-2024. Reference curve from Enercon type documentation.</span>
+  </figcaption>
+</figure>    </div>
+  </div>
+</section><section class="page standard-page page-power-production-cont-1">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Energy output</p>      <h2>Power Curve &amp; Energy Production cont.</h2>
+    </div>
+    <div class="figure-grid layout-block">
+<figure class="figure-card layout-block width-full">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/annual_production.svg" alt="Annual energy production by turbine (MWh), 2022-2024">
+  <figcaption>
+    <strong>Annual Energy Production by Turbine</strong>
+    <span>Annual gross energy output per turbine 2022-2024. Fleet total on secondary axis.</span>
+  </figcaption>
+</figure>    </div>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Annual Energy Production &amp; Capacity Factor</h3>
+<p>Fleet capacity factor calculated against theoretical maximum (4 x 2,050 kW x 8,760 h/yr).</p>  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>E1</th>
+        <th>E2</th>
+        <th>E3</th>
+        <th>E4</th>
+        <th>Fleet Total (MWh)</th>
+        <th>CF (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2022</td>
+        <td>5,627</td>
+        <td>5,947</td>
+        <td>5,921</td>
+        <td>4,931</td>
+        <td>22,426</td>
+        <td>31.2%</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>6,286</td>
+        <td>6,656</td>
+        <td>6,632</td>
+        <td>5,664</td>
+        <td>25,237</td>
+        <td>35.1%</td>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>5,449</td>
+        <td>5,436</td>
+        <td>5,583</td>
+        <td>4,725</td>
+        <td>21,193</td>
+        <td>29.5%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>  </div>
+</section><section class="page standard-page page-energy-availability">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Operational performance</p>      <h2>Energy-Based Availability</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>Energy-based availability (EBA) measures what fraction of potential energy production was realised, accounting for downtime periods. Fleet EBA averaged 98.5% over 2022-2024, indicating a well-maintained and reliable operation.</p>
+      <p>E4 (822883) recorded the lowest availability in 2022 (96.52%) and slightly underperforms peers in energy output, suggesting closer inspection of this unit&#39;s maintenance records is warranted. All other turbines remain within contractual performance targets.</p>
+    </section>
+    <div class="kpi-grid layout-block">
+<article class="kpi-card layout-block status-success">
+  <p class="kpi-label">E1 avg EBA</p>
+  <p class="kpi-value">98.5%</p>
+<p class="kpi-target">2022-2024</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">E2 avg EBA</p>
+  <p class="kpi-value">98.7%</p>
+<p class="kpi-target">2022-2024</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">E3 avg EBA</p>
+  <p class="kpi-value">98.8%</p>
+<p class="kpi-target">2022-2024</p></article><article class="kpi-card layout-block status-warning">
+  <p class="kpi-label">E4 avg EBA</p>
+  <p class="kpi-value">97.9%</p>
+<p class="kpi-target">2022-2024</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">Fleet avg EBA</p>
+  <p class="kpi-value">98.5%</p>
+<p class="kpi-target">2022-2024</p></article>    </div>
+    <div class="figure-grid layout-block">
+<figure class="figure-card layout-block width-full">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/energy_availability.svg" alt="Energy-based availability by turbine, 2022-2024">
+  <figcaption>
+    <strong>Energy-Based Availability by Turbine and Year</strong>
+    <span>Annual energy-based availability (EBA) for each turbine, 2022-2024. Contractual target (98%) shown for reference.</span>
+  </figcaption>
+</figure>    </div>
+  </div>
+</section><section class="page standard-page page-energy-availability-cont-1">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Operational performance</p>      <h2>Energy-Based Availability cont.</h2>
+    </div>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Energy-Based Availability (%)</h3>
+<p>EBA computed from SCADA data as (actual energy / maximum potential energy) x 100%.</p>  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Turbine</th>
+        <th>2022</th>
+        <th>2023</th>
+        <th>2024</th>
+        <th>Average</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-success">
+        <td>E1</td>
+        <td>98.4%</td>
+        <td>97.3%</td>
+        <td>99.7%</td>
+        <td>98.5%</td>
+      </tr>
+      <tr class="row-success">
+        <td>E2</td>
+        <td>99.4%</td>
+        <td>98.9%</td>
+        <td>97.8%</td>
+        <td>98.7%</td>
+      </tr>
+      <tr class="row-success">
+        <td>E3</td>
+        <td>99.5%</td>
+        <td>97.9%</td>
+        <td>99.2%</td>
+        <td>98.8%</td>
+      </tr>
+      <tr class="row-warning">
+        <td>E4</td>
+        <td>96.5%</td>
+        <td>97.5%</td>
+        <td>99.7%</td>
+        <td>97.9%</td>
+      </tr>
+      <tr class="row-success">
+        <td>Fleet avg</td>
+        <td>98.5%</td>
+        <td>97.9%</td>
+        <td>99.0%</td>
+        <td>98.5%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>  </div>
+</section><section class="page standard-page page-fatigue-assessment">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Generic IEC 61400-1 model</p>      <h2>Fatigue Assessment — Methodology &amp; DEL Results</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>Fatigue damage at this site is estimated using a simplified generic turbine model based on IEC 61400-1 Ed.4. In the absence of turbine-specific aeroelastic simulation data for all components, the Damage Equivalent Load (DEL) ratio method is applied: the site wind speed Weibull distribution is compared to the IEC IIA design basis using the closed-form m-th moment relationship.</p>
+      <p>For each structural component, the DEL ratio is calculated as: DEL_ratio = (A_site^m x Gamma(1+m/k_site)) / (A_design^m x Gamma(1+m/k_design)), where m is the Wohler material exponent. Correction factors are applied for turbulence intensity and air density.</p>
+      <p>The simplified model results are validated against the full aeroelastic simulation presented in the companion document (8p2_Ger_4xE82-2.0MW_LTA_2025_R00 Annex 1). For the structural lifetime results, the aeroelastic simulation values are used as the definitive assessment.</p>
+      <p>Note: The site mean wind speed of 6.72 m/s is significantly lower than the IEC IIA design basis of 8.5 m/s (Weibull k=2.0). This results in DEL ratios below 1.0 for all components, confirming the fatigue loading is within design margins.</p>
+    </section>
+    <div class="figure-grid layout-block">
+<figure class="figure-card layout-block width-full">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/del_ratios.svg" alt="Damage equivalent load ratio — site vs IEC IIA design">
+  <figcaption>
+    <strong>Damage Equivalent Load Ratio by Component</strong>
+    <span>DEL ratio &lt; 1.0 indicates site fatigue loading is below design basis. All values validated against aeroelastic simulation.</span>
+  </figcaption>
+</figure>    </div>
+  </div>
+</section><section class="page standard-page page-fatigue-assessment-cont-1">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Generic IEC 61400-1 model</p>      <h2>Fatigue Assessment — Methodology &amp; DEL Results cont.</h2>
+    </div>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>DEL Analysis Results — Generic IEC Model</h3>
+<p>DEL ratio computed using m-th moment of the Weibull distribution with TI correction. Design basis: IEC IIA, k=2.0, Vave=8.5 m/s. Years operated: ~14.5 yr (to June 2025).</p>  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Wohler m</th>
+        <th>DEL Ratio</th>
+        <th>Annual Consumption (%/yr)</th>
+        <th>Consumed (14.5 yr)</th>
+        <th>Validation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Blade roots (GRP)</td>
+        <td>10</td>
+        <td>0.0086</td>
+        <td>0.043%</td>
+        <td>0.6%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Blade adapters</td>
+        <td>9</td>
+        <td>0.0149</td>
+        <td>0.074%</td>
+        <td>1.1%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Blade-adapter-hub bolts</td>
+        <td>4</td>
+        <td>0.1933</td>
+        <td>0.967%</td>
+        <td>14.0%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Hub</td>
+        <td>9</td>
+        <td>0.0149</td>
+        <td>0.074%</td>
+        <td>1.1%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Main shaft</td>
+        <td>9</td>
+        <td>0.0149</td>
+        <td>0.074%</td>
+        <td>1.1%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Nacelle frame</td>
+        <td>9</td>
+        <td>0.0149</td>
+        <td>0.074%</td>
+        <td>1.1%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Steel tower</td>
+        <td>4</td>
+        <td>0.1933</td>
+        <td>0.967%</td>
+        <td>14.0%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Tower bolts</td>
+        <td>4</td>
+        <td>0.1933</td>
+        <td>0.967%</td>
+        <td>14.0%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+      <tr>
+        <td>Foundation bolts</td>
+        <td>4</td>
+        <td>0.1933</td>
+        <td>0.967%</td>
+        <td>14.0%</td>
+        <td>Matches aeroelastic</td>
+      </tr>
+    </tbody>
+  </table>
+</section>  </div>
+</section><section class="page standard-page page-lifetime-results">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Fatigue-based remaining life</p>      <h2>Structural Lifetime Assessment Results</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>Structural lifetime is calculated for each major component based on full aeroelastic simulation (Annex 1 of the companion assessment). The governing component is the blade-to-adapter-hub bolt connection, which limits baseline operation to May 2036 (25.5 years total from commissioning).</p>
+      <p>All other components show lifetimes between 31.1 and 40 years, providing a clear hierarchy of intervention priorities. The concrete tower, nacelle frame, hub, and main shaft all reach or are capped at 40 years — well beyond the extended scenarios.</p>
+      <p>Conservative assumptions embedded in the calculations include: 100% technical availability assumed (actual ~98.5%, making results more conservative), manufacturer safety margins in design typically exceed IEC minimum requirements, and the 40-year cap reflects prudence given uncertainty in long-term wind conditions.</p>
+    </section>
+    <div class="kpi-grid layout-block">
+<article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Governing component</p>
+  <p class="kpi-value">Blade-adapter-hub bolts</p>
+</article><article class="kpi-card layout-block status-warning">
+  <p class="kpi-label">Baseline end date</p>
+  <p class="kpi-value">May 2036</p>
+<p class="kpi-target">25.5 yr total</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">Extended end date (Sc.1)</p>
+  <p class="kpi-value">Jan 2042</p>
+<p class="kpi-target">31.1 yr — bolt replacement</p></article><article class="kpi-card layout-block status-success">
+  <p class="kpi-label">Extended end date (Sc.2)</p>
+  <p class="kpi-value">Nov 2050</p>
+<p class="kpi-target">40 yr — blade replacement</p></article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Components within design life</p>
+  <p class="kpi-value">9/9</p>
+<p class="kpi-target">all pass 20-yr design</p></article><article class="kpi-card layout-block status-neutral">
+  <p class="kpi-label">Components beyond 30 yr</p>
+  <p class="kpi-value">8/9</p>
+<p class="kpi-target">with appropriate maintenance</p></article>    </div>
+    <div class="figure-grid layout-block">
+<figure class="figure-card layout-block width-full">
+  <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/Lifetime%20Assessment/output/Ger_LTA_Report_assets/lifetime_components.svg" alt="Structural lifetime per component — fatigue assessment">
+  <figcaption>
+    <strong>Structural Component Lifetime Summary</strong>
+    <span>Total lifetime per component (aeroelastic simulation). Design lifetime (20 yr) and 40-year cap shown for reference. Colour indicates status.</span>
+  </figcaption>
+</figure>    </div>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Structural Component Lifetime — Detailed Results</h3>
+<p>Lifetimes from full aeroelastic simulation (8p2_Ger_4xE82-2.0MW_LTA_2025_R00 Annex 1). Remaining years calculated from commissioning December 2010 to assessment June 2025 (14.5 yr elapsed).</p>  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Material</th>
+        <th>S/N Curve (m)</th>
+        <th>Total Lifetime (yr)</th>
+        <th>End Date</th>
+        <th>Remaining (yr)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>Blade-adapter-hub bolts</td>
+        <td>Steel</td>
+        <td>4</td>
+        <td>25.5</td>
+        <td>June 2036</td>
+        <td>11.0</td>
+        <td>Governing</td>
+      </tr>
+      <tr class="row-warning">
+        <td>Blade adapters</td>
+        <td>Cast iron/steel</td>
+        <td>9</td>
+        <td>31.1</td>
+        <td>February 2042</td>
+        <td>16.6</td>
+        <td>Warning</td>
+      </tr>
+      <tr class="row-warning">
+        <td>Blade roots (GRP)</td>
+        <td>GRP/composite</td>
+        <td>10</td>
+        <td>32.6</td>
+        <td>July 2043</td>
+        <td>18.1</td>
+        <td>Warning</td>
+      </tr>
+      <tr>
+        <td>Hub</td>
+        <td>Cast iron/steel</td>
+        <td>9</td>
+        <td>40.0</td>
+        <td>December 2050</td>
+        <td>25.5</td>
+        <td>Adequate</td>
+      </tr>
+      <tr>
+        <td>Main shaft</td>
+        <td>Steel</td>
+        <td>9</td>
+        <td>40.0</td>
+        <td>December 2050</td>
+        <td>25.5</td>
+        <td>Adequate</td>
+      </tr>
+      <tr>
+        <td>Nacelle frame</td>
+        <td>Steel</td>
+        <td>9</td>
+        <td>40.0</td>
+        <td>December 2050</td>
+        <td>25.5</td>
+        <td>Adequate</td>
+      </tr>
+      <tr>
+        <td>Steel tower</td>
+        <td>Steel</td>
+        <td>4</td>
+        <td>40.0</td>
+        <td>December 2050</td>
+        <td>25.5</td>
+        <td>Adequate</td>
+      </tr>
+      <tr>
+        <td>Tower bolts</td>
+        <td>Steel</td>
+        <td>4</td>
+        <td>40.0</td>
+        <td>December 2050</td>
+        <td>25.5</td>
+        <td>Adequate</td>
+      </tr>
+      <tr>
+        <td>Foundation bolts</td>
+        <td>Steel</td>
+        <td>4</td>
+        <td>40.0</td>
+        <td>December 2050</td>
+        <td>25.5</td>
+        <td>Adequate</td>
+      </tr>
+    </tbody>
+  </table>
+</section>  </div>
+</section><section class="page standard-page page-extension-scenarios">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Operational planning</p>      <h2>Lifetime Extension Scenarios</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>Three operational scenarios have been evaluated based on the structural lifetime results. Each scenario requires maintenance action before the preceding lifetime limit to remain valid.</p>
+      <p>Scenario 1 (bolt replacement) is the minimum investment required to continue operating beyond May 2036 and is recommended as a near-term planning item. The replacement must be completed before the governing lifetime expires.</p>
+      <p>Scenario 2 (full blade assembly replacement) unlocks a further decade of operation at minimal incremental risk, given that all non-blade components are certified to 40 years. This scenario is contingent on continued compliance with the operational requirements set out in the type certificate.</p>
+    </section>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Lifetime Extension Scenarios</h3>
+<p>Each extension scenario is conditional on the prior scenario&#39;s maintenance action being completed before its deadline. Lifetimes measured from commissioning December 2010.</p>  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Required action</th>
+        <th>Deadline</th>
+        <th>Total lifetime</th>
+        <th>End date</th>
+        <th>Limiting component</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-warning">
+        <td>Baseline</td>
+        <td>No replacement required</td>
+        <td>—</td>
+        <td>25.5 yr</td>
+        <td>May 2036</td>
+        <td>Blade-adapter-hub bolts</td>
+      </tr>
+      <tr class="row-success">
+        <td>1 — Bolt replacement</td>
+        <td>Replace blade-adapter-hub bolts</td>
+        <td>Before May 2036</td>
+        <td>31.1 yr</td>
+        <td>Jan 2042</td>
+        <td>Blade adapters</td>
+      </tr>
+      <tr class="row-success">
+        <td>2 — Blade replacement</td>
+        <td>Replace blades, extenders &amp; bolts</td>
+        <td>Before Jan 2042</td>
+        <td>40.0 yr</td>
+        <td>Nov 2050</td>
+        <td>40-yr cap (safety)</td>
+      </tr>
+    </tbody>
+  </table>
+</section><section class="findings-card layout-block">
+  <div class="table-card-header">
+    <h3>Key Findings</h3>
+  </div>
+  <div class="findings-list">
+    <article class="finding finding-warning">
+      <h4>Bolt replacement — recommended near-term</h4>
+      <p>Procurement and scheduling for blade-adapter-hub bolt replacement should begin no later than 2033 to ensure completion before the May 2036 deadline.</p>
+    </article>
+    <article class="finding finding-info">
+      <h4>Operational compliance requirements</h4>
+      <p>Lifetime extension validity requires: turbine stops &lt;1,100/yr, third-party technical audit every 4 years after year 20, blade inspections every 3 years after year 20, and prompt repair of all structural damage.</p>
+    </article>
+  </div>
+</section>  </div>
+</section><section class="page standard-page page-operational-requirements">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Lifetime validity conditions</p>      <h2>Operational Requirements for Lifetime Extension</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>The calculated lifetimes are valid only if the following operational requirements are maintained throughout the extended operating period. Failure to comply with any condition may void the lifetime extension.</p>
+    </section>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Operational Requirements</h3>
+<p>Requirements derived from type certificate TC-201206 Rev.1 and IEC 61400-1 Ed.4 extension provisions. HIGH requirements are mandatory for lifetime validity.</p>  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Requirement</th>
+        <th>Threshold / Frequency</th>
+        <th>Responsible party</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Turbine stop count</td>
+        <td>&lt; 1,100 stops/year per turbine</td>
+        <td>Technical manager</td>
+        <td>HIGH</td>
+      </tr>
+      <tr>
+        <td>Third-party technical audit</td>
+        <td>Every 4 years after Year 20 (from 2030)</td>
+        <td>8.2 Advisory / independent engineer</td>
+        <td>HIGH</td>
+      </tr>
+      <tr>
+        <td>Blade inspection (drone/rope)</td>
+        <td>Every 3 years after Year 20 (from 2030)</td>
+        <td>Qualified inspector</td>
+        <td>HIGH</td>
+      </tr>
+      <tr>
+        <td>Structural damage repair</td>
+        <td>All large cracks and impacts repaired when found</td>
+        <td>Technical manager</td>
+        <td>HIGH</td>
+      </tr>
+      <tr>
+        <td>Blade bearing seal inspection</td>
+        <td>At next scheduled maintenance</td>
+        <td>Enercon / O&amp;M contractor</td>
+        <td>MEDIUM</td>
+      </tr>
+      <tr>
+        <td>Concrete tower monitoring (E1, E3)</td>
+        <td>Annual visual check of water ingress</td>
+        <td>Technical manager</td>
+        <td>MEDIUM</td>
+      </tr>
+      <tr>
+        <td>Tower crack monitoring (E2, E4)</td>
+        <td>Annual check of entrance door cracks</td>
+        <td>Technical manager</td>
+        <td>MEDIUM</td>
+      </tr>
+      <tr>
+        <td>SCADA data archiving</td>
+        <td>10-minute data retained for full lifetime</td>
+        <td>Technical manager</td>
+        <td>LOW</td>
+      </tr>
+    </tbody>
+  </table>
+</section>  </div>
+</section><section class="page standard-page page-recommendations">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Action plan</p>      <h2>Key Findings &amp; Recommendations</h2>
+    </div>
+    <section class="commentary-card layout-block">
+      <h3>Engineering Interpretation</h3>
+      <p>The following findings and recommendations are based on the structural lifetime assessment results and the June 2025 technical audit. Items are prioritised by urgency and impact on lifetime validity.</p>
+    </section>
+<section class="table-card layout-block">
+  <div class="table-card-header">
+    <h3>Prioritised Action Plan</h3>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Priority</th>
+        <th>Action</th>
+        <th>Turbine</th>
+        <th>Deadline</th>
+        <th>Responsible</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-warning">
+        <td>1 — Critical</td>
+        <td>Plan blade-adapter-hub bolt replacement</td>
+        <td>All</td>
+        <td>Plan by 2033, execute by May 2036</td>
+        <td>Asset owner</td>
+      </tr>
+      <tr class="row-warning">
+        <td>2 — High</td>
+        <td>Repair water ingress (steel-concrete joint)</td>
+        <td>E1, E3</td>
+        <td>Next maintenance window</td>
+        <td>O&amp;M contractor</td>
+      </tr>
+      <tr>
+        <td>3 — High</td>
+        <td>Clean blade bearing seals &amp; check auto-grease</td>
+        <td>All</td>
+        <td>Next maintenance window</td>
+        <td>O&amp;M contractor</td>
+      </tr>
+      <tr>
+        <td>4 — Medium</td>
+        <td>Investigate E4 energy underperformance &amp; availability</td>
+        <td>E4</td>
+        <td>Within 6 months</td>
+        <td>Technical manager</td>
+      </tr>
+      <tr>
+        <td>5 — Medium</td>
+        <td>Monitor entrance door cracks (annual)</td>
+        <td>E2, E4</td>
+        <td>Annual</td>
+        <td>Technical manager</td>
+      </tr>
+      <tr>
+        <td>6 — Low</td>
+        <td>Drone blade inspection (3-year cycle from 2030)</td>
+        <td>All</td>
+        <td>2030</td>
+        <td>Qualified inspector</td>
+      </tr>
+    </tbody>
+  </table>
+</section><section class="findings-card layout-block">
+  <div class="table-card-header">
+    <h3>Key Findings</h3>
+  </div>
+  <div class="findings-list">
+    <article class="finding finding-info">
+      <h4>No immediate structural risk</h4>
+      <p>Technical audit (June 2025) found no defects that would accelerate the calculated lifetime reduction. The fleet is in sound mechanical condition.</p>
+    </article>
+    <article class="finding finding-warning">
+      <h4>Plan bolt replacement before 2033</h4>
+      <p>Blade-adapter-hub bolt replacement must be completed before May 2036. Begin procurement assessment and budget planning by 2033 at the latest.</p>
+    </article>
+    <article class="finding finding-warning">
+      <h4>Address water ingress — E1 &amp; E3</h4>
+      <p>Water ingress observed between steel and concrete sections (E1) and rusty water ingress (E3). Seal and monitor — if corrosion of reinforcement is confirmed, structural repair is required before lifetime extension.</p>
+    </article>
+  </div>
+</section>  </div>
+</section><section class="page standard-page page-recommendations-cont-1">
+<div class="header-shell">
+  <div class="header-band">
+    <img src="file:///C:/Users/RichardMUSI/OneDrive%20-%20Dolfines/Bureau/AI/dolfines-data-services-products/SCADA%20Analysis/report/8p2_logo_white.png" alt="8.2 Advisory logo">
+    <div class="header-copy">
+      <p class="header-site">Ger (Les Herbreux)</p>
+      <p class="header-company">SCADA Performance Analysis Report</p>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</div>  <div class="page-content">
+    <div class="section-heading layout-block">
+<p class="eyebrow">Action plan</p>      <h2>Key Findings &amp; Recommendations cont.</h2>
+    </div>
+<section class="findings-card layout-block">
+  <div class="table-card-header">
+    <h3>Key Findings</h3>
+  </div>
+  <div class="findings-list">
+    <article class="finding finding-info">
+      <h4>Monitor E4 energy output</h4>
+      <p>E4 (822883) consistently produces less energy than peers and had the lowest availability in 2022 (96.5%). Review maintenance records and verify pitch calibration.</p>
+    </article>
+    <article class="finding finding-info">
+      <h4>Blade bearing seals — all turbines</h4>
+      <p>Grease excess noted on blade bearing seals of all four turbines. Clean excess grease and verify automatic lubrication system settings at next maintenance.</p>
+    </article>
+    <article class="finding finding-info">
+      <h4>Concrete tower crack monitoring</h4>
+      <p>Minor cracks above entrance doors on E2 and E4. Monitor annually; repair any crack exceeding 0.3 mm width.</p>
+    </article>
+  </div>
+</section>  </div>
+</section></body>
+</html>

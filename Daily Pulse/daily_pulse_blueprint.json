@@ -1,0 +1,428 @@
+{
+  "name": "8.2 Daily Pulse",
+  "flow": [
+    {
+      "id": 1,
+      "module": "builtin:BasicTrigger",
+      "version": 1,
+      "parameters": {},
+      "scheduler": {
+        "type": "SCHEDULED",
+        "interval": 86400,
+        "time": "09:00"
+      },
+      "metadata": {
+        "designer": { "x": 0, "y": 0 },
+        "restore": {},
+        "parameters": [],
+        "expect": []
+      }
+    },
+    {
+      "id": 2,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://news.google.com/rss/search?q=solaire+france&hl=fr&gl=FR&ceid=FR:fr",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": -150 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 3,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://news.google.com/rss/search?q=photovolta%C3%AFque+france&hl=fr&gl=FR&ceid=FR:fr",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 0 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 4,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://news.google.com/rss/search?q=stockage+%C3%A9nergie+france&hl=fr&gl=FR&ceid=FR:fr",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 150 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 5,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://news.google.com/rss/search?q=BESS+batterie+france&hl=fr&gl=FR&ceid=FR:fr",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 300 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 6,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://news.google.com/rss/search?q=solar+PV+france&hl=en&gl=FR&ceid=FR:en",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 450 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 7,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://news.google.com/rss/search?q=battery+storage+france&hl=en&gl=FR&ceid=FR:en",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 600 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 8,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://www.pv-magazine.fr/feed/",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 750 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 9,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://www.revolutionenergetique.com/feed/",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 900 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 10,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://www.enerzine.com/feed",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 1050 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 11,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://www.actu-environnement.com/rss/actualite_energie.xml",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 1200 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 12,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://www.pv-magazine.com/feed/",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 1350 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 13,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": { "handleErrors": false, "useNewZLibDeCompress": true },
+      "mapper": {
+        "ca": "",
+        "qs": [],
+        "url": "https://www.energy-storage.news/feed/",
+        "data": "",
+        "method": "GET",
+        "headers": [{ "name": "User-Agent", "value": "Mozilla/5.0 (compatible; DailyPulse/1.0)" }],
+        "timeout": 30,
+        "useMtls": false,
+        "bodyType": "raw",
+        "serializeUrl": false,
+        "shareCookies": false,
+        "parseResponse": false,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "rejectUnauthorized": true,
+        "followAllRedirects": false
+      },
+      "metadata": { "designer": { "x": 200, "y": 1500 }, "restore": { "expect": { "method": { "label": "GET" }, "bodyType": { "label": "Raw" } } } }
+    },
+    {
+      "id": 14,
+      "module": "util:TextAggregator",
+      "version": 1,
+      "parameters": { "rowSeparator": "other", "other": "|||" },
+      "mapper": {
+        "value": "{{2.data}}|||{{3.data}}|||{{4.data}}|||{{5.data}}|||{{6.data}}|||{{7.data}}|||{{8.data}}|||{{9.data}}|||{{10.data}}|||{{11.data}}|||{{12.data}}|||{{13.data}}"
+      },
+      "metadata": {
+        "designer": { "x": 500, "y": 600 },
+        "restore": { "expect": { "rowSeparator": { "label": "Other" } } },
+        "parameters": [
+          { "name": "rowSeparator", "type": "select", "label": "Row separator" },
+          { "name": "other", "type": "text", "label": "Other separator" }
+        ],
+        "expect": [
+          { "name": "value", "type": "text", "label": "Text" }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "module": "anthropic:CreateMessage",
+      "version": 1,
+      "parameters": { "handleErrors": false },
+      "mapper": {
+        "model": "claude-sonnet-4-20250514",
+        "max_tokens": 2000,
+        "system": "You are an expert analyst covering the French renewable energy market, specialising in Solar PV and Battery Energy Storage Systems (BESS). Your role is to read RSS XML feeds and produce a concise, professional daily digest in English. Be factual, precise, and highlight commercially significant developments.",
+        "messages": [
+          {
+            "role": "user",
+            "content": "You will receive raw RSS XML data from multiple French and international energy news feeds, concatenated together.\n\nYour task is to produce a Daily Energy Digest. Follow this structure exactly:\n\n---\n\n## ☀️ Solar PV — France | {{formatDate(now; 'DD MMM YYYY')}}\n\nFor each relevant Solar PV article (max 6):\n- **[Article Title]** — *Source, Date*\n  One sentence summarising the key fact or development (max 30 words).\n  🔗 URL\n\n---\n\n## 🔋 BESS & Energy Storage — France | {{formatDate(now; 'DD MMM YYYY')}}\n\nFor each relevant BESS/Storage article (max 6):\n- **[Article Title]** — *Source, Date*\n  One sentence summarising the key fact or development (max 30 words).\n  🔗 URL\n\n---\n\n## 📌 Key Takeaways\n\nWrite 3–5 bullet points highlighting the most important market signals from today's articles across Solar and BESS combined. Focus on: project announcements, MW/GWh figures, regulatory changes (CRE, PPE), M&A activity, and grid connection news.\n\n---\n\nRULES:\n- Include ONLY articles related to Solar PV or BESS/storage in France or involving French companies (EDF, Engie, TotalEnergies, Neoen, Voltalia, Urbasolar, Akuo, Valeco, Photosol, Qair, Lhyfe, Omnes, Mirova, Arkolia, etc.).\n- Exclude wind-only articles unless they also mention a solar or storage component.\n- Accept articles in French or English — always write your output in English.\n- Only include articles published in the last 30 hours. Check the <pubDate> field.\n- If a section has no articles today, write: 'No significant developments today.'\n- Never invent facts. Only use information from the provided XML data.\n- Preserve all article URLs exactly as found in the <link> tags.\n- Deduplicate: if the same story appears in multiple feeds, list it only once.\n\nHere is the raw RSS XML data:\n\n{{14.text}}"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": { "x": 800, "y": 600 },
+        "restore": {
+          "expect": {
+            "model": { "label": "claude-sonnet-4-20250514" }
+          }
+        },
+        "parameters": [
+          { "name": "handleErrors", "type": "checkbox", "label": "Handle errors" }
+        ],
+        "expect": [
+          { "name": "model", "type": "select", "label": "Model" },
+          { "name": "max_tokens", "type": "integer", "label": "Max tokens" },
+          { "name": "system", "type": "text", "label": "System prompt" },
+          { "name": "messages", "type": "array", "label": "Messages" }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "module": "gmail:ActionSendEmail",
+      "version": 1,
+      "parameters": { "handleErrors": false },
+      "mapper": {
+        "to": "YOUR_EMAIL@example.com",
+        "subject": "⚡ 8.2 Daily Pulse — {{formatDate(now; 'DD MMM YYYY')}}",
+        "content": "{{15.content[].text}}",
+        "contentType": "text",
+        "fromName": "8.2 Daily Pulse",
+        "replyTo": ""
+      },
+      "metadata": {
+        "designer": { "x": 1100, "y": 600 },
+        "restore": {
+          "expect": {
+            "contentType": { "label": "Plain text" }
+          }
+        },
+        "parameters": [],
+        "expect": [
+          { "name": "to", "type": "email", "label": "To" },
+          { "name": "subject", "type": "text", "label": "Subject" },
+          { "name": "content", "type": "text", "label": "Content" },
+          { "name": "contentType", "type": "select", "label": "Content type" },
+          { "name": "fromName", "type": "text", "label": "From name" },
+          { "name": "replyTo", "type": "email", "label": "Reply to" }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu1.make.com"
+  }
+}
+

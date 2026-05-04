@@ -1,0 +1,44 @@
+<section class="page cover-page">
+  <div class="cover-band">
+    {% if report.document.logo_white %}
+    <img class="cover-logo" src="{{ report.document.logo_white }}" alt="REVEAL logo">
+    {% else %}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" class="cover-logo" style="height:28px;width:auto;" aria-label="REVEAL logo">
+      <text x="2" y="34" font-family="Aptos,Calibri,Arial,Helvetica,sans-serif" font-size="30" font-weight="700" letter-spacing="0.10em" fill="#FFFFFF">REVEAL</text>
+      <rect x="2" y="39" width="52" height="3" rx="1.5" fill="#F39200"/>
+    </svg>
+    {% endif %}
+    <div class="header-copy">
+      <p class="header-site">{{ report.document.site_name }}</p>
+      <p class="header-company">{{ report.document.company }}</p>
+    </div>
+  </div>
+  <div class="cover-accent"></div>
+  <div class="cover-body layout-block">
+    {% if report.document.cover_image %}
+    <div class="cover-hero">
+      <img src="{{ report.document.cover_image }}" alt="Solar farm cover image">
+    </div>
+    {% else %}
+    <div class="cover-hero cover-hero-fallback">
+      <div>
+        <p class="eyebrow">REVEAL &#8212; Renewable Energy Analytics</p>
+        <h1>{{ page.title }}</h1>
+      </div>
+    </div>
+    {% endif %}
+    <div class="cover-panel">
+      <p class="eyebrow">REVEAL &#8212; Renewable Energy Analytics</p>
+      <h1>{{ page.title }}</h1>
+      <p class="cover-subtitle">{{ page.subtitle }}</p>
+      <dl class="cover-metadata">
+        {% for label, value in page.metadata %}
+        <div>
+          <dt>{{ label }}</dt>
+          <dd>{{ value }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+    </div>
+  </div>
+</section>

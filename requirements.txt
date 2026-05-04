@@ -1,0 +1,13 @@
+numpy>=1.26.0
+pandas>=2.2.0
+openpyxl>=3.1.0
+matplotlib>=3.8.0
+Jinja2>=3.1.4
+feedparser>=6.0.11
+playwright>=1.53.0
+streamlit>=1.35.0
+Pillow>=10.0.0
+msal>=1.28.0
+requests>=2.31.0
+fpdf2>=2.7.0
+weasyprint>=60.0

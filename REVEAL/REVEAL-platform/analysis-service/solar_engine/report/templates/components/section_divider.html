@@ -1,0 +1,19 @@
+<section class="page divider-page">
+  <div class="cover-band compact">
+    {% if report.document.logo_white %}
+    <img class="cover-logo" src="{{ report.document.logo_white }}" alt="REVEAL logo">
+    {% else %}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" class="cover-logo" style="height:24px;width:auto;" aria-label="REVEAL logo">
+      <text x="2" y="34" font-family="Aptos,Calibri,Arial,Helvetica,sans-serif" font-size="30" font-weight="700" letter-spacing="0.10em" fill="#FFFFFF">REVEAL</text>
+      <rect x="2" y="39" width="52" height="3" rx="1.5" fill="#F39200"/>
+    </svg>
+    {% endif %}
+  </div>
+  <div class="cover-accent"></div>
+  <div class="watermark">{{ report.document.watermark }}</div>
+  <div class="divider-body layout-block">
+    <p class="eyebrow">Section Divider</p>
+    <h2>{{ page.title }}</h2>
+    <p class="section-summary">{{ page.subtitle }}</p>
+  </div>
+</section>
